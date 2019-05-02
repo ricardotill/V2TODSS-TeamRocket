@@ -3,11 +3,8 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
    { path: 'tabs', loadChildren: './tabs/tabs.module#TabsPageModule' },
-   { path: '', loadChildren: './pages/page-qr-code/page-qr-code.module#PageQrCodePageModule' },
-   //{ path: 'page-info', loadChildren: './pages/page-info/page-info.module#PageInfoPageModule' },
-   //{ path: 'page-contact', loadChildren: './pages/page-contact/page-contact.module#PageContactPageModule' },
-   //{ path: 'page-medicatie', loadChildren: './pages/page-medicatie/page-medicatie.module#PageMedicatiePageModule' },
-   //{ path: 'page-login', loadChildren: './pages/page-login/page-login.module#PageLoginPageModule' },
+   //{ path: '', loadChildren: './pages/page-qr-code/page-qr-code.module#PageQrCodePageModule' },
+   { path: '', loadChildren: './pages/page-login/page-login.module#PageLoginPageModule' },
    //{ path: 'page-qr-code', loadChildren: './pages/page-qr-code/page-qr-code.module#PageQrCodePageModule' }
 ];
 @NgModule({
