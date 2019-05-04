@@ -1,3 +1,5 @@
+@import '../../../theme/variables.scss';
+
 ion-card{
     transform: translateY(50%);
     border-radius: 5px;
@@ -6,4 +8,5 @@ ion-card{
 ion-button{
     margin: 20px;
     border-radius: 5px;
+    background-color: $primaryColor;
 }

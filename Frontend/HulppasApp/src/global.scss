@@ -9,11 +9,8 @@
 @import '~@ionic/angular/css/text-alignment.css';
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
+@import './theme/variables.scss';
 
-
-.backrgound{
-    background-color: #3D6890;
-}
 .form{
     display: flex;
     justify-content: space-around;
@@ -35,7 +32,7 @@
 .input input{
     width: 100%;
     height: 100%;
-    color: #595f6e;
+    color: $textColor;
     padding-top: 20px;
     border: none;
     outline: none;
@@ -48,7 +45,7 @@
     width: 100%;
     height: 100%;
     pointer-events: none;
-    // border-bottom: 1px solid black;
+    border-bottom: 1px solid #a8a8a8;
 }
 
 .input label::after{
@@ -58,8 +55,8 @@
     bottom: -1px;
     height: 100%;
     width: 100%;
-    border-bottom: 3px solid #3D6890;
-    transform: translateX(-100%);
+    border-bottom: 3px solid $secondaryColor;
+    transform: translateX(-101%);
     transition: all 0.3s ease;
 }
 
@@ -74,7 +71,7 @@
 .input input:valid + .label .content{
     transform: translateY(-150%);
     font-size: 14px;
-    color: #595f6e;
+    color: $textColor;
 }
 
 .input input:focus + .label::after, .input input:valid + .label::after{
@@ -82,10 +79,15 @@
 }
 
 ion-card{
-    border-radius: 500px;
+    border-radius: 5px;
     --background: white !important;
+    
 }
 
 ion-content{
-    --background: #e0e0e0;
+    --background: #f8f8f8f8;
+}
+
+ion-header{
+    background-color: $secondaryColor;
 }
