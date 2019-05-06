@@ -1,12 +1,9 @@
 @import '../../../theme/variables.scss';
 
+.image{
+    justify-content: center;
+    margin: 30px 20px 0px 20px;
+}
 ion-card{
     transform: translateY(50%);
-    border-radius: 5px;
-
-}
-ion-button{
-    margin: 20px;
-    border-radius: 5px;
-    background-color: $primaryColor;
 }

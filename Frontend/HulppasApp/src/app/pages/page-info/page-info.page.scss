@@ -1,0 +1,34 @@
+.user{
+    //position: absolute;
+    width: 100%;
+    text-align: center;
+}
+
+.user-background{
+    background-color: black;
+    opacity: .5;
+    width: 100%;
+    height: 20vh;
+}
+
+.user-picture{
+    margin-top: 7vh;
+    margin-bottom: 4vh;
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    right: 0;
+}
+
+.text{
+    position: relative;
+    top: 100px;
+}
+
+.default{
+    font-weight: bold;
+}
+
+ion-card{
+    top: 11vh;
+}

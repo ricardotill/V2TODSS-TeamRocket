@@ -88,6 +88,15 @@ ion-content{
     --background: #f8f8f8f8;
 }
 
-ion-header{
-    background-color: $secondaryColor;
+ion-toolbar{
+    --background: #009fe3;
+}
+ion-card{
+    border-radius: 3px !important;
+
+}
+ion-button{
+    margin: 20px;
+    border-radius: 5px;
+    background-color: $primaryColor;
 }
