@@ -89,7 +89,7 @@ ion-content{
 }
 
 ion-toolbar{
-    --background: #009fe3;
+    --background: #FFC629;
 }
 ion-card{
     border-radius: 3px !important;
@@ -98,4 +98,8 @@ ion-card{
 ion-button{
     margin: 2vh;
     --border-radius: 3px !important;
+}
+
+ion-title{
+    color: $primaryColor;
 }
