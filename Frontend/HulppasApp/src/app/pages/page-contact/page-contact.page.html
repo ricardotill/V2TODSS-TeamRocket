@@ -1,9 +1,84 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>page-contact</ion-title>
+    <ion-title>contact</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content [scrollEvents]="true">
+  <h1 class="title" id="vertrouwenspersoon">Vertrouwens persoon</h1>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Jan Karels</ion-card-title>
+      <ion-card-subtitle>Vertrouwens persoon</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Deze meneer kan snel helpen in de buurt van Amsterdam. Werkt op werkdagen tussen 07:00 en 15:00. </p>
+      <ion-button  href={{this.telPhone}}>
+        <ion-icon name="call" slot="start"></ion-icon>Bel
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+      <ion-card-header>
+        <ion-card-title>Karel Jansen</ion-card-title>
+        <ion-card-subtitle>Vertrouwens persoon</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Deze meneer kan snel helpen in de buurt van Amsterdam. Werkt op werkdagen tussen 07:00 en 15:00. </p>
+        <ion-button  href={{this.telPhone}}>
+          <ion-icon name="call" slot="start"></ion-icon>Bel
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+        <ion-card-header>
+          <ion-card-title>Willem Willemsen</ion-card-title>
+          <ion-card-subtitle>Vertrouwens persoon</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <p>Deze meneer kan snel helpen in de buurt van Amsterdam. Werkt op werkdagen tussen 07:00 en 15:00. </p>
+          <ion-button  href={{this.telPhone}}>
+            <ion-icon name="call" slot="start"></ion-icon>Bel
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
+  <h1 class="title" id="doktoren">Doktoren</h1>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Dr. Mario</ion-card-title>
+      <ion-card-subtitle>Doktor</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Deze meneer is bekend met de medicijnen en heeft de patient vaak geholpen. Mario werkt tussen 07:00-17:00, met
+        spoed ook beschikbaar naast deze tijden en in het weekend. </p>
+      <ion-button href={{this.telPhone}}>
+        <ion-icon name="call" slot="start"></ion-icon>Bel
+      </ion-button>
+      <ion-button href={{this.telPhone}}>
+        <ion-icon name="call" slot="start"></ion-icon>Spoedlijn
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+      <ion-card-header>
+        <ion-card-title>Dr. Henk Boris</ion-card-title>
+        <ion-card-subtitle>Doktor</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Deze meneer is bekend met de medicijnen en heeft de patient vaak geholpen. Mario werkt tussen 07:00-17:00, met
+          spoed ook beschikbaar naast deze tijden en in het weekend. </p>
+        <ion-button href={{this.telPhone}}>
+          <ion-icon name="call" slot="start"></ion-icon>Bel
+        </ion-button>
+        <ion-button  href={{this.telPhone}}>
+          <ion-icon name="call" slot="start"></ion-icon>Spoedlijn
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="ScrollTo('doktoren')">
+        <ion-icon name="medkit"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
+

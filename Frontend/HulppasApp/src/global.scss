@@ -11,6 +11,9 @@
 @import '~@ionic/angular/css/flex-utils.css';
 @import './theme/variables.scss';
 
+*{
+    font-family: 'Roboto', sans-serif;
+}
 .form{
     display: flex;
     justify-content: space-around;
@@ -89,7 +92,7 @@ ion-content{
 }
 
 ion-toolbar{
-    --background: $secondaryColor;
+    --background: #FFC629 !important;
 }
 ion-card{
     border-radius: 3px !important;
@@ -103,3 +106,4 @@ ion-button{
 ion-title{
     color: $primaryColor;
 }
+
