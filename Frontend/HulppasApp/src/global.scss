@@ -1,0 +1,105 @@
+// http://ionicframework.com/docs/theming/
+@import '~@ionic/angular/css/core.css';
+@import '~@ionic/angular/css/normalize.css';
+@import '~@ionic/angular/css/structure.css';
+@import '~@ionic/angular/css/typography.css';
+@import '~@ionic/angular/css/display.css';
+@import '~@ionic/angular/css/padding.css';
+@import '~@ionic/angular/css/float-elements.css';
+@import '~@ionic/angular/css/text-alignment.css';
+@import '~@ionic/angular/css/text-transformation.css';
+@import '~@ionic/angular/css/flex-utils.css';
+@import './theme/variables.scss';
+
+.form{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    font-family: sans-serif;
+    // transform: translateY(150%);
+}
+
+.input{
+    font-size: 16px;
+    width: 75%;
+    position: relative;
+    height: 50px;
+    overflow: hidden;
+    margin: 1%;
+}
+
+.input input{
+    width: 100%;
+    height: 100%;
+    color: $textColor;
+    padding-top: 20px;
+    border: none;
+    outline: none;
+}
+
+.input label{
+    position: absolute;
+    bottom: 0px;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid #a8a8a8;
+}
+
+.input label::after{
+    content: "";
+    position: absolute;
+    left: 0px;
+    bottom: -1px;
+    height: 100%;
+    width: 100%;
+    border-bottom: 3px solid $secondaryColor;
+    transform: translateX(-101%);
+    transition: all 0.3s ease;
+}
+
+.content{
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+    transition: all 0.3s ease;
+}
+
+.input input:focus + .label .content,
+.input input:valid + .label .content{
+    transform: translateY(-150%);
+    font-size: 14px;
+    color: $textColor;
+}
+
+.input input:focus + .label::after, .input input:valid + .label::after{
+    transform: translateX(0%);
+}
+
+ion-card{
+    border-radius: 5px;
+    --background: white !important;
+    
+}
+
+ion-content{
+    --background: #f8f8f8f8;
+}
+
+ion-toolbar{
+    --background: $secondaryColor;
+}
+ion-card{
+    border-radius: 3px !important;
+
+}
+ion-button{
+    margin: 2vh;
+    --border-radius: 3px !important;
+}
+
+ion-title{
+    color: $primaryColor;
+}

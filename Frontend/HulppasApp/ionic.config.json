@@ -1,0 +1,7 @@
+{
+  "name": "HulppasApp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
