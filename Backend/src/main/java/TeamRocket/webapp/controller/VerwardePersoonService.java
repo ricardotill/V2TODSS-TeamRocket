@@ -1,4 +1,4 @@
-package controller;
+package TeamRocket.webapp.controller;
 
 import javax.json.Json;
 import javax.json.JsonArray;
@@ -8,8 +8,8 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 
-import dao.VerwardePersoonDaoImpl;
-import model.VerwardePersoon;
+import TeamRocket.webapp.dao.VerwardePersoonDaoImpl;
+import TeamRocket.webapp.model.VerwardePersoon;
 
 @Path("/persoon")
 public class VerwardePersoonService {

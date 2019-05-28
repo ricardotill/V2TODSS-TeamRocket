@@ -1,8 +1,4 @@
-package model;
-
-import java.sql.Date;
-import java.util.ArrayList;
-import java.util.List;
+package TeamRocket.webapp.model;
 
 public class VerwardePersoon {
 	private String fotourl;

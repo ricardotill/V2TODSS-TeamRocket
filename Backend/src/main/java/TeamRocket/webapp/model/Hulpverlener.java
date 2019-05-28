@@ -1,4 +1,4 @@
-package model;
+package TeamRocket.webapp.model;
 
 public class Hulpverlener {
 	private String naam;

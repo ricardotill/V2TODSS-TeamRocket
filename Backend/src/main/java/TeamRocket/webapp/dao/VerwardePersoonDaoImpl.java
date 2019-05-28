@@ -1,9 +1,9 @@
-package dao;
+package TeamRocket.webapp.dao;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import model.VerwardePersoon;
+import TeamRocket.webapp.model.VerwardePersoon;
 
 public class VerwardePersoonDaoImpl implements VerwardePersoonDao{
 	private List<VerwardePersoon> verwardepersoon = new ArrayList<VerwardePersoon>();
