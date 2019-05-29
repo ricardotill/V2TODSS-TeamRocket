@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand-lg custom-toggler sticky-top">
+  <a class="navbar-brand" routerLink="/">Crisiskaart Dashboard</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-light navbar-toggler-icon"></span>
+  </button>
+  
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="navbar-nav mr-auto">
+      <a class="nav-item nav-link mr-2" [routerLinkActive]="['active']" routerLink="/gegevens"><i class="fas fa-users-cog"></i> Gegevens</a>
+      <a class="nav-item nav-link mr-2" [routerLinkActive]="['active']" routerLink="/genereren"><i class="fas fa-cogs"></i> Genereren</a>
+      <a class="nav-item nav-link mobileonly" routerLink="/login"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </div>
+  </div>
+
+  <div class="my-2 my-lg-0">
+    <a class="nav-item nav-link desktoponly" routerLink="/login"><i class="fas fa-sign-out-alt"></i> Logout</a>
+  </div>
+</nav>

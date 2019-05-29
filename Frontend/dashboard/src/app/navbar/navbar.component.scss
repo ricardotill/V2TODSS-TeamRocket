@@ -1,0 +1,31 @@
+@media only screen and (min-width: 991px) {
+    .mobileonly {
+        display: none;
+    }
+}
+@media only screen and (max-width: 991px) {
+    .desktoponly {
+        display: none;
+    }
+}
+
+nav {
+    background-color: #FFC629;
+}
+
+.nav-link, .navbar-brand {
+    color: #002C60;
+}
+.nav-link:hover, .navbar-brand:hover {
+    color: #005c99;
+}
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(0,44,96)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+.custom-toggler .navbar-toggler {
+    border-color: rgb(0,44,96);
+}
+
+.active {
+    font-weight: 900;
+}

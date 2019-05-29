@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,700&display=swap');
+body {
+    font-family: 'Roboto', sans-serif!important;
+}
+
+.btn-primary {
+    background-color: #002C60!important;
+    border-color: #002C60!important;
+}
+.btn-primary:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0,44,96,.25)!important;
+}
+
+.btn-secondary {
+    background-color: #FFC629!important;
+    border-color: #FFC629!important;
+}
+.btn-secondary:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(255, 198, 41, 0.452)!important;
+}
+
+.page-item.disabled .page-link {
+    color: #9ba3aa!important;
+}
+.page-link {
+    color: #002C60!important;
+}
+
+
+
+.unclickable  { text-decoration: none!important; }
+.unclickable:hover { cursor: default!important; }
