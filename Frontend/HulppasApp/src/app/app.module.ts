@@ -10,7 +10,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { QRScanner } from '@ionic-native/qr-scanner/ngx';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+// import { HttpModule } from '@angular/http';
+import { HTTP } from '@ionic-native/http/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,13 +21,15 @@ import { HttpModule } from '@angular/http';
     BrowserModule, 
     IonicModule.forRoot(), 
     AppRoutingModule,
-    HttpModule
+    // HttpModule,
+    HttpClientModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
     QRScanner,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    HTTP
   ],
   bootstrap: [AppComponent]
 })

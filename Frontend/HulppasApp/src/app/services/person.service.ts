@@ -1,32 +1,25 @@
 import { Injectable } from '@angular/core';
-import { Http, RequestOptions } from '@angular/http';
+import { Http } from '@angular/http';
 import { map } from 'rxjs/operators';
-import { pipe } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class PersonService {
-  url: string;
-  headerDict: any;
-  requestOptions: any;
+  urlPt0: string;
+  urlPt1: string;
+
 
   constructor(public http: Http) {
-    this.url  = "http://hulppas.herokuapp.com/api/verwardepersoon";
-    this.headerDict = {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-      'Access-Control-Allow-Headers': 'Content-Type',
-      'Access-Control-Allow-Origin': '*'
-    }
-    
-    this.requestOptions = {                                                                                                                                                                                 
-      headers: new Headers(this.headerDict), 
-    };
+    this.urlPt0 = "https://thingproxy.freeboard.io/fetch/";
+    this.urlPt1  =   "http://hulppas.herokuapp.com/api/verwardepersoon";
    }
 
   getPerson() {
-    return this.http.get(this.url, this.requestOptions)
-      .pipe(map(res => res.json()));
+    // return this.http.get(this.url)
+    //   .pipe(map(res => res.json()));
+    return this.http.get(this.urlPt0 + this.urlPt1).pipe(map(res => res.json()));
   }
 }
