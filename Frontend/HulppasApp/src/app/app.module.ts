@@ -15,7 +15,9 @@ import { HttpModule } from '@angular/http';
 import { HTTP } from '@ionic-native/http/ngx';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent
+  ],
   entryComponents: [],
   imports: [
     BrowserModule, 

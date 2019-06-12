@@ -1,11 +1,21 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Hulppas</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>Talenter</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-<div class="camera"></div>
-<ion-button (click)="scanQR()"></ion-button>
-<ion-button routerLink="page-login">Login</ion-button>
+    <div class="image">
+        <img src="../../../assets/images/logo.svg">
+    </div>
+    <ion-card>
+        <ion-card-content>
+            <p> Deze applicatie is gemaakt om verwarde mensen te helpen. Als medewerker kunt u inloggen en als bijstaander hoeft dat niet.</p>
+            <p> Scan de QR-code op het pasje van de bijstaander om meer informatie te verkrijgen.</p>
+        </ion-card-content>
+    </ion-card>
+    <div class="content">
+        <ion-button (click)="scanQR()">Scan QR</ion-button>
+        <ion-button routerLink="page-login">Login</ion-button>
+    </div>
 </ion-content>
