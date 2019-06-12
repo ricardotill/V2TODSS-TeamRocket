@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonContent, LoadingController } from '@ionic/angular';
+import { PersonService } from 'src/app/services/person.service';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'app-page-medicatie',
@@ -7,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageMedicatiePage implements OnInit {
 
-  constructor() { }
+  constructor(private personService: PersonService) { }
 
   ngOnInit() {
   }

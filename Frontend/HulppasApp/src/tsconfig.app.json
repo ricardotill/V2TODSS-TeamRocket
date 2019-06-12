@@ -7,5 +7,15 @@
   "exclude": [
     "test.ts",
     "**/*.spec.ts"
-  ]
+  ],
+  "files": ["../src/app/pages/page-info/page-info.module.ts",
+            "../src/main.ts","../src/polyfills.ts",
+            "../src/zone-flags.ts",
+            "../src/app/pages/page-contact/page-contact.module.ts",
+            "../src/app/pages/page-login/page-login.module.ts",
+            "../src/app/pages/page-medicatie/page-medicatie.module.ts",
+            "../src/app/pages/page-qr-code/page-qr-code.module.ts",
+            "../src/app/tabs/tabs.module.ts",
+            "../src/app/pages/page-info/page-Info.module.ts",
+          ]
 }

@@ -11,7 +11,7 @@ import { AppComponent } from './app.component';
 
 import { QRScanner } from '@ionic-native/qr-scanner/ngx';
 import { HttpClientModule } from '@angular/common/http';
-// import { HttpModule } from '@angular/http';
+import { HttpModule } from '@angular/http';
 import { HTTP } from '@ionic-native/http/ngx';
 
 @NgModule({
@@ -21,7 +21,7 @@ import { HTTP } from '@ionic-native/http/ngx';
     BrowserModule, 
     IonicModule.forRoot(), 
     AppRoutingModule,
-    // HttpModule,
+    HttpModule,
     HttpClientModule
   ],
   providers: [

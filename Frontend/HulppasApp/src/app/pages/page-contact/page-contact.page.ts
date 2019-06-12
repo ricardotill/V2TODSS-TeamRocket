@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonContent } from '@ionic/angular';
+import { IonContent, LoadingController } from '@ionic/angular';
+import { PersonService } from 'src/app/services/person.service';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'app-page-contact',
@@ -10,10 +12,9 @@ export class PageContactPage implements OnInit {
   @ViewChild(IonContent) content: IonContent;
 
   tel: string = 'tel:';
-  phone: number = 31612345678;
-  telPhone: string = this.tel + this.phone;
+  person: any;
 
-  constructor() { }
+  constructor(private loadingCtrl: LoadingController, private personService: PersonService, public http: Http) { }
 
   ngOnInit() {
   }

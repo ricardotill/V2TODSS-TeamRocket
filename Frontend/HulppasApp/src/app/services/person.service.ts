@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class PersonService {
   urlPt0: string;
   urlPt1: string;
+  person: any;
 
 
   constructor(public http: Http) {
@@ -18,8 +19,14 @@ export class PersonService {
    }
 
   getPerson() {
-    // return this.http.get(this.url)
-    //   .pipe(map(res => res.json()));
-    return this.http.get(this.urlPt0 + this.urlPt1).pipe(map(res => res.json()));
+    return this.http.get(this.urlPt1).pipe(map(res => res.json()));
+  }
+  
+  personVariable(){
+    this.getPerson()
+      .subscribe(person => {
+      this.person = person;
+      console.log(this.person);
+    });
   }
 }

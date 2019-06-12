@@ -1,8 +1,22 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>medicatie</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>medicatie</ion-title>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf="this.personService.person">
+    <ion-card>
+        <ion-card-header>
+            <ion-card-title>
+                <h3>{{this.personService.person[0].medicijnen.medicijn_0}}</h3>
+            </ion-card-title>
+        </ion-card-header>
+    </ion-card>
+    <ion-card>
+        <ion-card-header>
+            <ion-card-title>
+                <h3>{{this.personService.person[0].medicijnen.medicijn_1}}</h3>
+            </ion-card-title>
+        </ion-card-header>
+    </ion-card>
 </ion-content>
