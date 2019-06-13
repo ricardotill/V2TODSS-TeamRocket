@@ -14,8 +14,13 @@
             <p> Scan de QR-code op het pasje van de bijstaander om meer informatie te verkrijgen.</p>
         </ion-card-content>
     </ion-card>
+    <ion-card>
+        <ion-card-content>
+            <p>Build 0.0.10</p>
+        </ion-card-content>
+    </ion-card>
     <div class="content">
-        <ion-button (click)="scanQR()">Scan QR</ion-button>
-        <ion-button routerLink="page-login">Login</ion-button>
+        <ion-button routerLink="/page-scan">Scan QR</ion-button>
+        <ion-button routerLink="/page-login">Login</ion-button>
     </div>
 </ion-content>

@@ -18,11 +18,7 @@ export class PageInfoPage implements OnInit {
     this.getPersonFromApi();
   }
 
-  async getPersonFromApi(){
-    let loading = await this.loadingCtrl.create();
-    await loading.present();
+  getPersonFromApi(){
     this.personService.personVariable();
-    loading.dismiss();
-
   }
 }
