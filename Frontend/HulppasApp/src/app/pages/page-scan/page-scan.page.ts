@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
 import { Router } from '@angular/router';
 
@@ -8,71 +8,50 @@ import { Router } from '@angular/router';
   styleUrls: ['./page-scan.page.scss'],
 })
 export class PageScanPage {
+  hash: string;
 
   constructor(private qrScanner: QRScanner, private router: Router) { }
 
   ionViewDidEnter() {
     this.scanQR();
-    console.log("yeet");
   }
 
   startScan() {
     let scanSub = this.qrScanner.scan().subscribe((text: string) => {
-      console.log('Scanned something', text);
-      this.qrScanner.hide(); // hide camera preview
-      scanSub.unsubscribe(); // stop scanning
-      console.log("Scanner closed");
-      // alert(text); // Show text in alert
+      this.qrScanner.hide();
+      scanSub.unsubscribe();
 
-      // after scan
-      if (text != '') {
+      if (text != '' && text.length == 64) {
         alert(text);
-        this.qrScanner.hide(); // hide camera preview
-        scanSub.unsubscribe(); // stop scanning
+        this.hash = text;
+        this.qrScanner.hide();
+        scanSub.unsubscribe();
         this.router.navigate(["/tabs/pages/page-info"]);
       }else{
-        alert("empty qr");
       }
 
     });
   }
 
   scanQR() {
-
-    // Optionally request the permission early
     this.qrScanner.prepare()
     .then((status: QRScannerStatus) => {
       if (status.authorized) {
-        // camera permission was granted
-        // alert('authorized');
-
-        // start scanning
         this.startScan();
-
         this.qrScanner.resumePreview();
-
-        // show camera preview
         this.qrScanner.show()
         .then((data : QRScannerStatus)=> { 
-          console.log('Data status', data);
-          //alert(data.showing);
         },err => {
-          alert(err);
+          alert("error: "+ err);
         });
-
-        // wait for user to scan something, then the observable callback will be called
       } else if (status.denied) {
-        alert('denied');
-        // camera permission was permanently denied
-        // you must use QRScanner.openSettings() method to guide the user to the settings page
-        // then they can grant the permission from there
+        alert('Allow access to the camera in the settings of your phone');
       } else {
-        // permission was denied, but not permanently. You can ask for permission again at a later time.
-        alert('else');
+        alert('Something went wrong.');
       }
     })
     .catch((e: any) => {
-      alert('Error is' + e);
+      alert('Unavailable, error code: ' + e);
     });
   }
 }

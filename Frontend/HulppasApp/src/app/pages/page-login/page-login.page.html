@@ -11,20 +11,22 @@
     <ion-card>
         <div class="form">
             <div class="input">
-                <input type="text" class="input" name="name" autocomplete="off" required>
+                <input type="text" class="input" name="name" autocomplete="off" required [(ngModel)]="name">
                 <label for="name" class="label">
-          <span class="content">Name</span>
-        </label>
+                        <span class="content">Name</span>
+                    </label>
             </div>
             <div class="input">
-                <input type="password" name="password" autocomplete="off" required>
+                <input type="password" name="password" autocomplete="off" required [(ngModel)]="password">
                 <label for="password" class="label">
-          <span class="content">Password</span>
-        </label>
+                        <span class="content">Password</span>
+                    </label>
             </div>
-            <ion-button href="/tabs/pages/page-info">
+            <ion-button (click)="Login()">
                 Login
             </ion-button>
         </div>
     </ion-card>
 </ion-content>
+
+<!-- href="/tabs/pages/page-info" -->
