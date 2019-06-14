@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PersonService } from '../../services/person.service';
+import { LoginCheckService } from '../../services/login-check.service';
 import { LoadingController } from '@ionic/angular';
 import { Http } from '@angular/http';
 
@@ -19,12 +20,17 @@ export class PageInfoPage implements OnInit {
 
   constructor(private loadingCtrl: LoadingController,
     private personService: PersonService,
+    private loginService: LoginCheckService,
     public http: Http,
     private alertController: AlertController,
     private router: Router ) { }
 
   ngOnInit() {
+  }
+
+  ionViewDidEnter() {
     this.getPersonFromApi();
+    this.loginService.checkLogin();
   }
 
   getPersonFromApi() {

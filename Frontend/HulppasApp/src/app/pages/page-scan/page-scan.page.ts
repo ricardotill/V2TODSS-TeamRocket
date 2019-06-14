@@ -52,6 +52,7 @@ export class PageScanPage {
     })
     .catch((e: any) => {
       alert('Unavailable, error code: ' + e);
+      this.router.navigate(["/page-qr-code"]);
     });
   }
 }
