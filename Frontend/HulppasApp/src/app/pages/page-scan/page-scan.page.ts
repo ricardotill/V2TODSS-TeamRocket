@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-page-scan',
@@ -8,9 +9,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./page-scan.page.scss'],
 })
 export class PageScanPage {
-  hash: string;
 
-  constructor(private qrScanner: QRScanner, private router: Router) { }
+  constructor(private qrScanner: QRScanner, 
+              private router: Router,
+              private navCtrl: NavController) { }
 
   ionViewDidEnter() {
     this.scanQR();
@@ -21,12 +23,13 @@ export class PageScanPage {
       this.qrScanner.hide();
       scanSub.unsubscribe();
 
-      if (text != '' && text.length == 64) {
+      if (text != '') {
         alert(text);
-        this.hash = text;
+        this.router.navigate(
+          ["/tabs/pages/page-info"],
+          { queryParams: { hash: text } }  );
         this.qrScanner.hide();
         scanSub.unsubscribe();
-        this.router.navigate(["/tabs/pages/page-info"]);
       }else{
       }
 
@@ -52,7 +55,7 @@ export class PageScanPage {
     })
     .catch((e: any) => {
       alert('Unavailable, error code: ' + e);
-      this.router.navigate(["/page-qr-code"]);
+      this.router.navigate([""]);
     });
   }
 }

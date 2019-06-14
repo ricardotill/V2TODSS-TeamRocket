@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { PersonService } from '../../services/person.service';
 import { LoginCheckService } from '../../services/login-check.service';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, NavParams } from '@ionic/angular';
 import { Http } from '@angular/http';
 
 import { AlertController } from '@ionic/angular';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-page-info',
@@ -15,6 +15,7 @@ import { Router } from '@angular/router';
 export class PageInfoPage implements OnInit {
   person: any;
   data = [];
+  hash: string;
 
   // loggedin: string = "ja";
 
@@ -23,7 +24,9 @@ export class PageInfoPage implements OnInit {
     private loginService: LoginCheckService,
     public http: Http,
     private alertController: AlertController,
-    private router: Router ) { }
+    private router: Router,
+    private route: ActivatedRoute){
+    }
 
   ngOnInit() {
   }
@@ -31,6 +34,7 @@ export class PageInfoPage implements OnInit {
   ionViewDidEnter() {
     this.getPersonFromApi();
     this.loginService.checkLogin();
+    this.getHash();
   }
 
   getPersonFromApi() {
@@ -56,12 +60,21 @@ export class PageInfoPage implements OnInit {
           handler: (data) => {
             console.log(data.log);
             this.router.navigate(["/page-qr-code"]);
+            
           }
         }
       ]
     });
 
     await alert.present();
+  }
+
+  getHash(){
+    this.route.queryParams.subscribe(params => {
+        console.log(params);
+        this.hash = params.hash;
+        alert(this.hash);
+      });
   }
 }
 
