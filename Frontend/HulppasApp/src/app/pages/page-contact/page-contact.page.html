@@ -15,7 +15,7 @@
             <ion-card-subtitle>Vertrouwens persoon</ion-card-subtitle>
         </ion-card-header>
         <ion-card-content>
-            <h3>{{this.personService.person[0].vertrouwspersoon_0.adres}}</h3>
+            <h3 *ngIf="this.loginService.check">{{this.personService.person[0].vertrouwspersoon_0.adres}}</h3>
             <br>
             <p></p>
             <ion-button href={{this.tel}}+{{this.personService.person[0].vertrouwspersoon_0.telefoom}}>
@@ -29,7 +29,7 @@
             <ion-card-subtitle>Vertrouwens persoon</ion-card-subtitle>
         </ion-card-header>
         <ion-card-content>
-            <h3>{{this.personService.person[0].vertrouwspersoon_1.adres}}</h3>
+            <h3 *ngIf="this.loginService.check">{{this.personService.person[0].vertrouwspersoon_1.adres}}</h3>
             <br>
             <p></p>
             <ion-button href={{this.tel}}+{{this.personService.person[0].vertrouwspersoon_1.telefoom}}>

@@ -1,8 +1,8 @@
 .user {
-    //position: absolute;
     width: 100%;
     text-align: center;
     margin-bottom: 20px;
+    height: 30vh;
 }
 
 .user-background {
@@ -21,7 +21,9 @@
 }
 
 .user-picture img {
-    border-radius: 100px;
+    width: 50vw;
+    height: 50vw;
+    border-radius: 100%;
 }
 
 .default {
@@ -31,12 +33,4 @@
 .link {
     font-weight: bold;
     text-decoration: none;
-}
-
-ion-card {
-    top: 16vh;
-}
-
-.filler {
-    height: 5vh;
 }

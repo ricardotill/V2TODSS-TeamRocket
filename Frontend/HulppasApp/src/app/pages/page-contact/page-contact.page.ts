@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonContent, LoadingController } from '@ionic/angular';
 import { PersonService } from 'src/app/services/person.service';
+import { LoginCheckService } from 'src/app/services/login-check.service';
 import { Http } from '@angular/http';
 
 @Component({
@@ -14,11 +15,15 @@ export class PageContactPage implements OnInit {
   tel: string = 'tel:';
   person: any;
 
-  constructor(private loadingCtrl: LoadingController, private personService: PersonService, public http: Http) { }
+  constructor(private loginService: LoginCheckService,
+              private personService: PersonService) { }
 
   ngOnInit() {
   }
 
+  ionViewDidEnter() {
+    this.loginService.checkLogin();
+  }
 
   ScrollTo(element: string) {
     let yOffset = document.getElementById(element).offsetTop - 10;

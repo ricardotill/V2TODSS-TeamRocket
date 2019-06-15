@@ -16,6 +16,6 @@
             "../src/app/pages/page-medicatie/page-medicatie.module.ts",
             "../src/app/pages/page-qr-code/page-qr-code.module.ts",
             "../src/app/tabs/tabs.module.ts",
-            "../src/app/pages/page-info/page-Info.module.ts",
+            "../src/app/pages/page-scan/page-scan.module.ts",
           ]
 }

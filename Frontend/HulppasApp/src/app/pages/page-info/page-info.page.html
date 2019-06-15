@@ -25,7 +25,7 @@
                         {{this.personService.person[0].naam}}
                     </ion-col>
                 </ion-row>
-                <ion-row>
+                <ion-row *ngIf="this.loginService.check">
                     <ion-col class="default">
                         Geboortedatum:
                     </ion-col>
@@ -41,7 +41,7 @@
                         {{this.personService.person[0].adres}}
                     </ion-col>
                 </ion-row>
-                <ion-row>
+                <ion-row *ngIf="this.loginService.check">
                     <ion-col class="default">
                         Nummer:
                     </ion-col>
@@ -60,8 +60,7 @@
         </ion-card-content>
     </ion-card>
 
-
-    <ion-card>
+    <ion-card *ngIf="this.loginService.check">
         <ion-card-content>
             <ion-grid>
                 <ion-row>
@@ -83,5 +82,9 @@
             </ion-grid>
         </ion-card-content>
     </ion-card>
-    <div class="filler"></div>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="this.loginService.check">
+        <ion-fab-button (click)="logData()">
+            <ion-icon name="checkmark"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
 </ion-content>
