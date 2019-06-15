@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import * as $ from 'jquery';
+import * as html2canvas from 'html2canvas';
 import { Router } from '@angular/router';
 
 @Component({
