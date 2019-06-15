@@ -1,71 +1,55 @@
 <div class="container">
-  <!-- <div class="row">
-    <div class="col">
-      <div id="hulppas-voor" class="rij">
-        <div class="kolom">
-          <img id="profilepic" src="https://randomuser.me/api/portraits/women/27.jpg" alt="Profilepic">
-        </div>
-        <div class="kolom">
-          <div>
-            Als ik veel prikkels krijg dan kan ik agressief overkomen. Op deze pas staan mensen die mij kunnen kalmeren.
-          </div>
-        </div>
-        <div class="kolom">
-          <div>
-            Scan de qr-code voor meer informatie, of ga naar deze link in je browser.
-          </div>
-          <div>
-            hulp.pas/aQuWsmWs
-          </div>
-          <img class="img-fluid" src="assets/img/example-qr.png" alt="QR-code">
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div id="hulppas-achter" class="row">
-        <div class="col">
-          aa
-        </div>
-        <div class="col">
-          aa
-        </div>
-        <div class="col">
-          aa
-        </div>
-      </div>
-    </div>
+  <div class="alert alert-danger mt-3" role="alert">
+    <h4 class="alert-heading">Pagina is niet wijd genoeg!</h4>
+    <p>Om de generatie van de passen goed te laten verlopen moet jouw apparaat een minimale wijdte van 1000 pixels toestaan, telefoons en tablets zijn niet wijd genoeg.</p>
+    <hr>
+    <p class="mb-0">Als je op een normale computer zit, probeer de pagina te bekijken in volledige grootte. In- en outzoomen zorgen er ook voor dat de download van de foto's kleiner is dan bedoeld. Doe dit dan ook niet. Voor meer vragen raadpleeg de handleiding op de homepage.</p>
   </div>
-  <button class='btn btn-primary' (click)='exportHulppas()'>Generate</button> -->
-
-  <div class="row">
+  <div class="row content">
     <div class="col">
       <div id="hulppas-voor" class="hulppas">
         <img src="assets/img/voorkant.png" alt="Voorkant Hulppas">
         <div id="voornaam">
-          Frederik
+          Frederike
         </div>
         <div id="tussenvoegsel">van</div>
         <div id="achternaam">
           Eijk
         </div>
-        <div id="id">
-          ID/123456
-        </div>
-        <div id="beschrijving">
-          aaa
+        <div id="geboortedatum">
+          10-10-1976
         </div>
         <img id="qr-code-voor" src="assets/img/example-qr.jpg" alt="QR-code">
-        <img id="profilepic" src="https://randomuser.me/api/portraits/women/27.jpg" alt="Profilepic">
+        <img id="profilepic" src="assets/img/example-profilepic.jpg" alt="Profilepic">
+        <div id="beschrijving">
+          Als ik veel prikkels krijg, kan ik agressief overkomen. Op deze pas staan mensen die mij kunnen helpen.
+        </div>
+        <div id="shortlink">
+          bit.ly/aBcDeFg
+        </div>
       </div>
     </div>
     <div class="col">
       <div id="hulppas-achter" class="hulppas">
         <img src="assets/img/achterkant.png" alt="Achterkant Hulppas">
-        <div id="">
-          asdasdadasd
+        <img id="qr-code-achter" src="assets/img/example-qr.jpg" alt="QR-code">
+        <div id="vertrouwenspersoon-naam" class="achterkant-tekst">
+          Hendrik van Eijk
+        </div>
+        <div id="vertrouwenspersoon-relatie" class="achterkant-tekst">
+          Vader
+        </div>
+        <div id="vertrouwenspersoon-adres" class="achterkant-tekst">
+          Straatnaam 12 0000AB Stad
+        </div>
+        <div id="vertrouwenspersoon-telefoon" class="achterkant-tekst">
+          +316 00 00 00 00
+        </div>
+        <div id="adres" class="achterkant-tekst">
+          Straatnaam 12 0000AB Stad
         </div>
       </div>
     </div>
   </div>
-  <button class='btn btn-primary' (click)='exportHulppas()'>Generate</button>
+  <button class='btn btn-primary content' (click)='exportHulppas()'>Generate</button>
 </div>

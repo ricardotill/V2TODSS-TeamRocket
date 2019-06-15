@@ -1,10 +1,11 @@
 .hulppas {
   color: white;
+  width: fit-content;
 }
 #profilepic {
   position: absolute;
-  margin-top: -248px;
-  margin-left: 14px;
+  margin-top: 25px;
+  margin-left: -390px;
   width: 110px
 }
 #voornaam {
@@ -22,16 +23,72 @@
   margin-top: -60px;
   margin-left: 16px;
 }
-#id {
+#geboortedatum {
   position: absolute;
   margin-top: -40px;
   margin-left: 16px;
 }
+#beschrijving {
+  position: absolute;
+  margin-top: -220px;
+  margin-left: 130px;
+  width: 146px
+}
 #qr-code-voor {
+  z-index: 10000;
   width: 100px;
   height: 100px;
 
   position: absolute;
-  margin-top: -140px;
+  margin-top: 136px;
+  margin-left: -112px;
+}
+#shortlink {
+  position: absolute;
+  margin-top: -145px;
   margin-left: 286px;
+  width: 146px
+}
+
+#qr-code-achter {
+  z-index: 10000;
+  width: 100px;
+  height: 100px;
+
+  position: absolute;
+  margin-top: 136px;
+  margin-left: -380px;
+}
+.achterkant-tekst {
+  position: absolute;
+  color: black;
+  font-size: 14px;
+  margin-left: 196px;
+}
+#vertrouwenspersoon-naam {
+  margin-top: -190px;
+}
+#vertrouwenspersoon-relatie {
+  margin-top: -170px;
+}
+#vertrouwenspersoon-adres {
+  margin-top: -150px;
+}
+#vertrouwenspersoon-telefoon {
+  margin-top: -130px;
+}
+#adres {
+  margin-top: -80px;
+}
+
+@media screen and (max-width: 1000px) {
+  .content {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .alert {
+    display: none;
+  }
 }

@@ -1,4 +1,5 @@
 declare var require: any;
+declare var $: any;
 
 import { Component, OnInit } from '@angular/core';
 // import * as html2canvas from 'html2canvas';

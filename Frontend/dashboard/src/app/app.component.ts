@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import * as $ from 'jquery';
 import * as html2canvas from 'html2canvas';
 import { Router } from '@angular/router';
 
@@ -11,6 +10,7 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'Dashboard';
   router: string;
+
 
   constructor(private _router: Router){
     this.router = _router.url;
