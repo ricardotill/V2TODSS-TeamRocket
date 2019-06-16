@@ -1,28 +1,57 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import { map } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
+import { map, catchError } from 'rxjs/operators';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import {throwError, Observable} from 'rxjs';
+
+export class Vertrouwenspersoon {
+  naam: string;
+  adres: string;
+  telefoon: string;
+  relatie: string;
+}
+
+export class Huisarts {
+  naam: string;
+  polieadres: string;
+  telefoonnummers: string[];
+}
+
+export interface Patient {
+  naam: string;
+  adres: string;
+  geboortedatum: string;
+  telefoon: string;
+  verzekeringsgegevens: string;
+  foto: string;
+  qrcode: number;
+  probleem: string;
+
+  huisarts: Huisarts;
+  medicijnen: string[];
+  vertrouwenspersonen: Vertrouwenspersoon[];
+}
+
+export interface ResponsePatients {
+  results: Patient[];
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class Person {
-  urlAll: string;
-  urlByCode: string;
+  allUrl: string;
+  byCodeUrl: string;
   person: any;
 
   // TODO fix errors
 
 
-  constructor(private http: Http) {
-    this.urlAll  =   "http://hulppas.herokuapp.com/api/verwardepersoon";
+  constructor(private http: HttpClient) {
+    this.allUrl  =   "http://hulppas.herokuapp.com/api/verwardepersoon";
+    this.byCodeUrl = "";
   }
 
-  getAll() {
-    return this.http.get(this.urlPt0).pipe(map(res => res.json()));
-  }
-
-  getByCode() {
-    return this.http.get(this.urlPt0).pipe(map(res => res.json()));
+  getPatients() {
+    return this.http.get<string>(this.allUrl);
   }
 }
