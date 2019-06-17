@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { map, catchError } from 'rxjs/operators';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import {throwError, Observable} from 'rxjs';
+import { Http } from '@angular/http';
 
 export class Vertrouwenspersoon {
   naam: string;
@@ -41,17 +42,25 @@ export interface ResponsePatients {
 export class Person {
   allUrl: string;
   byCodeUrl: string;
-  person: any;
+  patients: any;
 
   // TODO fix errors
 
 
-  constructor(private http: HttpClient) {
+  constructor(private http: Http) {
     this.allUrl  =   "http://hulppas.herokuapp.com/api/verwardepersoon";
     this.byCodeUrl = "";
   }
 
   getPatients() {
-    return this.http.get<string>(this.allUrl);
+    return this.http.get(this.allUrl).pipe(map(res => res.json()));
+  }
+
+  async personVariable(){
+    await this.getPatients()
+      .subscribe(person => {
+      this.patients = person;
+      console.log(this.patients);
+    });
   }
 }

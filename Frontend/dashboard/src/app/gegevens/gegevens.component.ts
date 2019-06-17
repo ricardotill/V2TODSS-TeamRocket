@@ -8,6 +8,7 @@ declare var $: any;
   styleUrls: ['./gegevens.component.scss']
 })
 export class GegevensComponent implements OnInit {
+  person: any;
 
   constructor(private personService: Person) { }
   patients: JSON;
@@ -21,20 +22,17 @@ export class GegevensComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.patients.forEach(element => {
-      this.insertPerson(element.qrCode, element.naam, element.geboortedatum, element.telefoon);
-    });
-    this.insertPerson(1, 'Fred E', '11-11-2019', '+316 000000000');
+    // this.patients.forEach(element => {
+    //   this.insertPerson(element.qrCode, element.naam, element.geboortedatum, element.telefoon);
+    // });
+    // this.insertPerson(1, 'Fred E', '11-11-2019', '+316 000000000');
+    this.showPatients();
 
     $('[data-toggle="tooltip"]').tooltip();
 
   }
 
-  showPatienten() {
-    let patients: string;
-    this.personService.getPatients()
-      // clone the data object, using its known Config shape
-      .subscribe((data) => patients = data);
-    this.patients = JSON.parse(patients);
+  showPatients() {
+    this.personService.personVariable();
   }
 }
