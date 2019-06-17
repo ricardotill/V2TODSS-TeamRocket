@@ -1,40 +1,46 @@
 <div class="container mt-4">
-  <div class="row">
-    <div class="col">
-      <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Zoeken naar patiënten..." aria-label="Recipient's username" aria-describedby="button-addon2">
-        <div class="input-group-append">
-          <button class="btn btn-primary" type="button" id="button-addon2">Search</button>
+    <div class="row">
+        <div class="col">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Zoeken naar patiënten..." aria-label="Recipient's username" aria-describedby="button-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button" id="button-addon2">Search</button>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col">
-        <table class="table" *ngIf="this.personService.patients">
-            <thead class="thead-light">
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Naam</th>
-                <th scope="col">Geboortedatum</th>
-                <th scope="col">Telefoon</th>
-                <th scope="col" class="editrow"></th>
-              </tr>
-            </thead>
-            <!-- <ng-container *ngFor="let patient in this.personService.patients"> -->
-              <tbody>
-                <tr *ngFor="let patient in this.personService.patients">
-
-                </tr>
-              </tbody>
-              <!-- <tr>
+    <div class="row">
+        <div class="col">
+            <table class="table" *ngIf="this.personService.patients">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Naam</th>
+                        <th scope="col">Geboortedatum</th>
+                        <th scope="col">Telefoon</th>
+                        <th scope="col" class="editrow"></th>
+                    </tr>
+                </thead>
+                <!-- <ng-container *ngFor="let patient in this.personService.patients"> -->
+                <tbody>
+                    <tr *ngFor="let patient of this.personService.patients">
+                        <th>{{patient.qrCode}}</th>
+                        <td>{{patient.naam}}</td>
+                        <td>{{patient.geboortedatum}}</td>
+                        <td>{{patient.telefoon}}</td>
+                        <td>
+                            <a href="/medicijnen/'+ code +'" class="btn btn-primary btn-sm mr-1" data-toggle="tooltip" data-placement="top" title="Bekijk/wijzig medicijnen"><i class="fas fa-pills"></i></a><a href="/gegevens/'+ code +'" class="btn btn-primary btn-sm"
+                                data-toggle="tooltip" data-placement="top" title="Bekijk/wijzig details patiënt"><i class="fas fa-edit"></i></a></td>
+                    </tr>
+                </tbody>
+                <!-- <tr>
                 <th scope="row">1</th>
                 <td>Mark</td>
                 <td>Otto</td>
                 <td>@mdo</td>
                 <td><button class="btn btn-primary btn-sm mr-1" data-toggle="tooltip" data-placement="top" title="Bekijk/wijzig medicijnen"><i class="fas fa-pills"></i></button><button class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Bekijk/wijzig details patiënt"><i class="fas fa-edit"></i></button></td>
               </tr> -->
-              <!-- <tr>
+                <!-- <tr>
                 <th scope="row">2</th>
                 <td>Jacob</td>
                 <td>Thornton</td>
@@ -48,21 +54,21 @@
                 <td>@twitter</td>
                 <td><button class="btn btn-primary btn-sm mr-1"><i class="fas fa-pills"></i></button><button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></button></td>
               </tr> -->
-            <!-- </ng-container> -->
-          </table>
+                <!-- </ng-container> -->
+            </table>
+        </div>
     </div>
-  </div>
-  <nav aria-label="Page navigation example">
-      <ul class="pagination justify-content-center">
-        <li class="page-item disabled">
-          <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Vorige</a>
-        </li>
-        <li class="page-item"><a class="page-link" href="">1</a></li>
-        <li class="page-item"><a class="page-link" href="">2</a></li>
-        <li class="page-item"><a class="page-link" href="">3</a></li>
-        <li class="page-item">
-          <a class="page-link" href="#">Volgende</a>
-        </li>
-      </ul>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Vorige</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="">1</a></li>
+            <li class="page-item"><a class="page-link" href="">2</a></li>
+            <li class="page-item"><a class="page-link" href="">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">Volgende</a>
+            </li>
+        </ul>
     </nav>
 </div>
