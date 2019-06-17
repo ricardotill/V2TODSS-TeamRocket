@@ -1,55 +1,76 @@
-<div class="container">
-  <div class="alert alert-danger mt-3" role="alert">
-    <h4 class="alert-heading">Pagina is niet wijd genoeg!</h4>
-    <p>Om de generatie van de passen goed te laten verlopen moet jouw apparaat een minimale wijdte van 1000 pixels toestaan, telefoons en tablets zijn niet wijd genoeg.</p>
-    <hr>
-    <p class="mb-0">Als je op een normale computer zit, probeer de pagina te bekijken in volledige grootte. In- en outzoomen zorgen er ook voor dat de download van de foto's kleiner is dan bedoeld. Doe dit dan ook niet. Voor meer vragen raadpleeg de handleiding op de homepage.</p>
-  </div>
-  <div class="row content">
-    <div class="col">
-      <div id="hulppas-voor" class="hulppas">
-        <img src="assets/img/voorkant.png" alt="Voorkant Hulppas">
-        <div id="voornaam">
-          Frederike
-        </div>
-        <div id="tussenvoegsel">van</div>
-        <div id="achternaam">
-          Eijk
-        </div>
-        <div id="geboortedatum">
-          10-10-1976
-        </div>
-        <img id="qr-code-voor" src="assets/img/example-qr.jpg" alt="QR-code">
-        <img id="profilepic" src="assets/img/example-profilepic.jpg" alt="Profilepic">
-        <div id="beschrijving">
-          Als ik veel prikkels krijg, kan ik agressief overkomen. Op deze pas staan mensen die mij kunnen helpen.
-        </div>
-        <div id="shortlink">
-          bit.ly/aBcDeFg
-        </div>
-      </div>
+<div class="container mt-4 mb-1">
+  <div class="card">
+    <div class="card-body">
+        <div class="alert alert-danger mt-3 alert-device-small" role="alert">
+            <h4 class="alert-heading">Pagina is niet wijd genoeg!</h4>
+            <p>Om de generatie van de passen goed te laten verlopen moet jouw apparaat een minimale wijdte van 1000 pixels toestaan, telefoons en tablets zijn niet wijd genoeg.</p>
+            <hr>
+            <p class="mb-0">Als je op een normale computer zit, probeer de pagina te bekijken in volledige grootte. In- en outzoomen zorgen er ook voor dat de download van de foto's kleiner is dan bedoeld. Doe dit dan ook niet. Voor meer vragen raadpleeg de handleiding op de homepage.</p>
+          </div>
+          <h1 class="card-title">Genereren
+              <div class="btn-group float-right" role="group">
+                  <a class="btn btn-primary" routerLink="/gegevens/1" role="button"><i class="fas fa-users-cog"></i> Persoonsgegevens</a>
+                  <a class="btn btn-primary" routerLink="/medicijnen/1" role="button"><i class="fas fa-prescription-bottle-alt"></i> Medicijnen</a>
+                  <a class="btn btn-primary" routerLink="/vertrouwenspersonen/1" role="button"><i class="fas fa-users"></i> Vertrouwenspersonen</a>
+                  <a class="btn btn-outline-secondary" routerLink="/gegevens" on><i class="fas fa-times"></i></a>
+                </div>
+          </h1>
+          <h3 class="card-subtitle mb-2 text-muted">Frederike van Eijk #3132342</h3>
+          <div class="row content kaart">
+            <div class="col">
+              <div id="hulppas-voor" class="hulppas">
+                <img src="assets/img/voorkant.png" alt="Voorkant Hulppas">
+                <div id="voornaam">
+                  Frederike
+                </div>
+                <div id="tussenvoegsel">van</div>
+                <div id="achternaam">
+                  Eijk
+                </div>
+                <div id="geboortedatum">
+                  10-10-1976
+                </div>
+                <img id="qr-code-voor" src="https://klanten.tresamigosdevelopment.com/Parbo/api/show_qrcode.php?code=1234567890AAAAAA" alt="QR-code">
+                <img id="profilepic" src="assets/img/example-profilepic.jpg" alt="Profilepic">
+                <div id="beschrijving">
+                  Als ik veel prikkels krijg, kan ik agressief overkomen. Op deze pas staan mensen die mij kunnen helpen.
+                </div>
+                <div id="shortlink">
+                  bit.ly/aBcDeFg
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div id="hulppas-achter" class="hulppas">
+                <img src="assets/img/achterkant.png" alt="Achterkant Hulppas">
+                <img id="qr-code-achter" src="https://klanten.tresamigosdevelopment.com/Parbo/api/show_qrcode.php?code=1234567890AAAAAA" alt="QR-code">
+                <div id="vertrouwenspersoon-naam" class="achterkant-tekst">
+                  Hendrik van Eijk
+                </div>
+                <div id="vertrouwenspersoon-relatie" class="achterkant-tekst">
+                  Vader
+                </div>
+                <div id="vertrouwenspersoon-adres" class="achterkant-tekst">
+                  Straatnaam 12 0000AB Stad
+                </div>
+                <div id="vertrouwenspersoon-telefoon" class="achterkant-tekst">
+                  +316 00 00 00 00
+                </div>
+                <div id="adres" class="achterkant-tekst">
+                  Straatnaam 12 0000AB Stad
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="alert alert-dark mt-3 content" role="alert">
+            <h4 class="alert-heading">Zo komen de kaarten eruit te zien</h4> <button class='btn btn-primary float-right' (click)='exportHulppas()'>Genereren</button>
+            <p>Weet je zeker dat alle informatie op de pas goed en actueel is? Wanneer dit niet is, ga dan terug naar 'Persoonsgegevens'.</p>
+            <hr>
+            <p class="mb-0">
+              Wanneer je op de knop 'Genereren' drukt, dan worden de passen omgezet naar fotoformaat en gedownload. Ga voorzichtig met deze foto's om, hier staan persoonlijke gegevens in.
+            </p>
+          </div>
     </div>
-    <div class="col">
-      <div id="hulppas-achter" class="hulppas">
-        <img src="assets/img/achterkant.png" alt="Achterkant Hulppas">
-        <img id="qr-code-achter" src="assets/img/example-qr.jpg" alt="QR-code">
-        <div id="vertrouwenspersoon-naam" class="achterkant-tekst">
-          Hendrik van Eijk
-        </div>
-        <div id="vertrouwenspersoon-relatie" class="achterkant-tekst">
-          Vader
-        </div>
-        <div id="vertrouwenspersoon-adres" class="achterkant-tekst">
-          Straatnaam 12 0000AB Stad
-        </div>
-        <div id="vertrouwenspersoon-telefoon" class="achterkant-tekst">
-          +316 00 00 00 00
-        </div>
-        <div id="adres" class="achterkant-tekst">
-          Straatnaam 12 0000AB Stad
-        </div>
-      </div>
-    </div>
   </div>
-  <button class='btn btn-primary content' (click)='exportHulppas()'>Generate</button>
+
 </div>

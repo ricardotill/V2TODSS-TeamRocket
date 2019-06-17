@@ -14,6 +14,7 @@ import { FooterComponent } from './footer/footer.component';
 import { LogoutComponent } from './logout/logout.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { PatientComponent } from './patient/patient.component';
+import { VertrouwenspersonenComponent } from './vertrouwenspersonen/vertrouwenspersonen.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { PatientComponent } from './patient/patient.component';
     FooterComponent,
     LogoutComponent,
     HomepageComponent,
-    PatientComponent
+    PatientComponent,
+    VertrouwenspersonenComponent
   ],
   imports: [
     BrowserModule,

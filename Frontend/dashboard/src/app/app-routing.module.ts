@@ -9,6 +9,7 @@ import { GegevensComponent } from './gegevens/gegevens.component';
 import { MedicijnenComponent } from './medicijnen/medicijnen.component';
 import { GenererenComponent } from './genereren/genereren.component';
 import { PatientComponent } from './patient/patient.component';
+import { VertrouwenspersonenComponent } from './vertrouwenspersonen/vertrouwenspersonen.component';
 
 const routes: Routes = [
   {path: '', component: HomepageComponent},
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path: 'gegevens', component: GegevensComponent},
   {path: 'gegevens/:id', component: PatientComponent},
   {path: 'medicijnen/:id', component: MedicijnenComponent},
-  {path: 'genereren/:id', component: GenererenComponent}
+  {path: 'genereren/:id', component: GenererenComponent},
+  {path: 'vertrouwenspersonen/:id', component: VertrouwenspersonenComponent}
 ];
 
 @NgModule({

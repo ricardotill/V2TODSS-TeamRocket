@@ -1,47 +1,98 @@
 <div class="container mt-4 mb-1">
-    <div class="btn-group" role="group" aria-label="Basic example">
-      <button type="button" class="btn btn-outline-dark"><i class="fas fa-chevron-left"></i></button>
-      <button type="button" class="btn btn-primary"><i class="fas fa-capsules"></i></button>
-      <button type="button" class="btn btn-secondary">Right</button>
-    </div>
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title">Medicijnen
+                <div class="btn-group float-right" role="group">
+                    <a class="btn btn-primary" routerLink="/gegevens/1" role="button"><i class="fas fa-users-cog"></i> Persoonsgegevens</a>
+                    <a class="btn btn-primary" routerLink="/vertrouwenspersonen/1" role="button"><i class="fas fa-users"></i> Vertrouwenspersonen</a>
+                    <a class="btn btn-primary" routerLink="/genereren/1" role="button"><i class="fas fa-id-card"></i> Hulppas Genereren</a>
+                    <a class="btn btn-outline-secondary" routerLink="/gegevens" on><i class="fas fa-times"></i></a>
+                  </div>
+            </h1>
+            <h3 class="card-subtitle mb-2 text-muted">Frederike van Eijk #3132342</h3>
 
-    <form>
-      <div class="form-row">
-        <div class="form-group">
-          <label for="staticID">ID</label>
-          <input type="text" class="form-control" id="staticID" placeholder="#1" readonly>
+                <div class="accordion" id="accordion">
+                    <div class="card">
+                      <div class="card-header" id="medicijn1">
+                        <h2 class="mb-0">
+                          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                            Paracetamol 500mg
+                          </button>
+                        </h2>
+                      </div>
+
+                      <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#accordion">
+                          <div class="card-body">
+                              <form id='1'>
+                                  <div class="form-group">
+                                    <label for="naam">Naam incl. hoeveelheid per inname</label>
+                                    <input type="text" class="form-control" id="naam" value="Paracetamol 500mg">
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="frequentie">Frequentie van inname</label>
+                                    <input type="text" class="form-control" id="frequentie" value="2x per dag">
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="bijzich" class="mr-4">Standaard bij zich</label>
+                                    <div id="bijzich" class="form-check form-check-inline">
+                                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="radioJa" value="Ja">
+                                      <label class="form-check-label" for="inlineRadio1">Ja</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="radioNee" value="Nee">
+                                      <label class="form-check-label" for="inlineRadio2">Nee</label>
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label for="opmerkingen">Opmerkingen</label>
+                                      <textarea class="form-control" id="opmerkingen" rows="3"></textarea>
+                                    </div>
+                                  <button class="btn btn-primary mt-3" type="submit">Opslaan</button>
+                                </form>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header" id="headingNew">
+                          <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseNew" aria-expanded="false" aria-controls="collapseNew">
+                              Nieuw medicijn toevoegen
+                            </button>
+                          </h2>
+                        </div>
+                        <div id="collapseNew" class="collapse show" aria-labelledby="headingNew" data-parent="#accordion">
+                            <div class="card-body">
+                                <form id='new'>
+                                    <div class="form-group">
+                                      <label for="naam">Naam incl. hoeveelheid per inname</label>
+                                      <input type="text" class="form-control" id="naam" value="Paracetamol 500mg">
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="frequentie">Frequentie van inname</label>
+                                      <input type="text" class="form-control" id="frequentie" value="2x per dag">
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="bijzich" class="mr-4">Standaard bij zich</label>
+                                      <div id="bijzich" class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="radioJa" value="Ja">
+                                        <label class="form-check-label" for="inlineRadio1">Ja</label>
+                                      </div>
+                                      <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="radioNee" value="Nee">
+                                        <label class="form-check-label" for="inlineRadio2">Nee</label>
+                                      </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="opmerkingen">Opmerkingen</label>
+                                        <textarea class="form-control" id="opmerkingen" rows="3"></textarea>
+                                      </div>
+                                    <button class="btn btn-primary mt-3" type="submit">Toevoegen</button>
+                                  </form>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
         </div>
-      </div>
-        <div class="form-row">
-          <div class="form-group col-md-5">
-            <label for="inputFirstName">Voornaam</label>
-            <input type="text" class="form-control" id="inputFirstName" placeholder="Pieter">
-          </div>
-          <div class="form-group col-md-5">
-            <label for="inputSecondName">Achternaam</label>
-            <input type="text" class="form-control" id="inputSecondName" placeholder="Post">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="inputAddress">Adres</label>
-          <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-        </div>
-        <div class="form-group">
-          <label for="inputAddress2">Adres 2</label>
-          <input type="text" class="form-control" id="inputAddress2" placeholder="">
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="inputCity">Stad</label>
-            <input type="text" class="form-control" id="inputCity">
-          </div>
-          <div class="form-group col-md-2">
-            <label for="inputZip">Postcode</label>
-            <input type="text" class="form-control" id="inputZip">
-          </div>
-        </div>
-        <button type="submit" class="btn btn-primary mr-1">Opslaan</button>
-        <button type="submit" class="btn btn-danger">Annuleren</button>
-      </form>
+    </div>
 </div>
-  
