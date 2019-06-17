@@ -10,7 +10,7 @@
 <ion-content *ngIf="this.personService.person">
     <div class="user">
         <div class="user-picture">
-            <img src="{{this.personService.person[0].fotourl}}" width="200" height="200">
+            <img src="{{this.personService.person.fotourl}}" width="200" height="200">
         </div>
         <div class="user-background"></div>
     </div>
@@ -22,7 +22,7 @@
                         Name:
                     </ion-col>
                     <ion-col>
-                        {{this.personService.person[0].naam}}
+                        {{this.personService.person.naam}}
                     </ion-col>
                 </ion-row>
                 <ion-row *ngIf="this.loginService.check">
@@ -30,7 +30,7 @@
                         Geboortedatum:
                     </ion-col>
                     <ion-col>
-                        {{this.personService.person[0].geboortedatum}}
+                        {{this.personService.person.geboortedatum}}
                     </ion-col>
                 </ion-row>
                 <ion-row>
@@ -38,7 +38,7 @@
                         adres:
                     </ion-col>
                     <ion-col>
-                        {{this.personService.person[0].adres}}
+                        {{this.personService.person.adres}}
                     </ion-col>
                 </ion-row>
                 <ion-row *ngIf="this.loginService.check">
@@ -46,7 +46,7 @@
                         Nummer:
                     </ion-col>
                     <ion-col>
-                        {{this.personService.person[0].telefoon}}
+                        {{this.personService.person.telefoon}}
                     </ion-col>
                 </ion-row>
             </ion-grid>
@@ -56,7 +56,7 @@
 
     <ion-card>
         <ion-card-content>
-            {{this.personService.person[0].probleem}}
+            {{this.personService.person.probleem}}
         </ion-card-content>
     </ion-card>
 
@@ -68,7 +68,7 @@
                         1.
                     </ion-col>
                     <ion-col>
-                        {{this.personService.person[0].handelingen.handeling_0}}
+                        {{this.personService.person.handelingen.handeling_0}}
                     </ion-col>
                 </ion-row>
                 <ion-row>
@@ -76,7 +76,7 @@
                         2.
                     </ion-col>
                     <ion-col>
-                        {{this.personService.person[0].handelingen.handeling_1}}
+                        {{this.personService.person.handelingen.handeling_1}}
                     </ion-col>
                 </ion-row>
             </ion-grid>

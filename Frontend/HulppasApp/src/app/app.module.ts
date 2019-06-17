@@ -9,11 +9,12 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { QRScanner } from '@ionic-native/qr-scanner/ngx';
+// import { QRScr } from '@ionic-native/qr-scanner/ngx';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { HTTP } from '@ionic-native/http/ngx';
 import { IonicStorageModule } from '@ionic/storage';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
 @NgModule({
   declarations: [
@@ -31,9 +32,10 @@ import { IonicStorageModule } from '@ionic/storage';
   providers: [
     StatusBar,
     SplashScreen,
-    QRScanner,
+    // QRScanner,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    HTTP
+    HTTP,
+    BarcodeScanner
   ],
   bootstrap: [AppComponent]
 })

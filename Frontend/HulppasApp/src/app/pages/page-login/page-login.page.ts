@@ -21,8 +21,8 @@ export class PageLoginPage implements OnInit {
       alert("Please fill in both the values.");
     } else {
       console.log(this.name, this.password);
-      this.router.navigate(["/tabs/pages/page-info"]);
       this.storage.set('id',this.name);
+      this.router.navigate(['/page-qr-code']);
       //Hier komt de post en de response opslaan in de storage
     }
   }

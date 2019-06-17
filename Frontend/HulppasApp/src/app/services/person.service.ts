@@ -9,27 +9,23 @@ import { LoadingController } from '@ionic/angular';
   providedIn: 'root'
 })
 export class PersonService {
-  urlPt0: string;
-  urlPt1: string;
+  url: string;
   person: any;
 
 
   constructor(private http: Http, private loadingCtrl: LoadingController) {
-    this.urlPt0 = "https://thingproxy.freeboard.io/fetch/";
-    this.urlPt1  =   "http://hulppas.herokuapp.com/api/verwardepersoon";
-   }
-
-  getPerson() {
-    return this.http.get(this.urlPt1).pipe(map(res => res.json()));
+    this.url = "http://quater.serveo.net/api/persoon";
   }
-  
-  async personVariable(){
+
+  async getPerson(qr_code) {
     let loading = await this.loadingCtrl.create();
     await loading.present();
-    this.getPerson()
-      .subscribe(person => {
-      this.person = person;
-      loading.dismiss();
-    });
-  }
+    this.http.get(this.url+"/"+qr_code)
+      .subscribe(
+        (person) => {
+          this.person = person.json();
+          console.log(this.person);
+          loading.dismiss();
+        });
+  };
 }
