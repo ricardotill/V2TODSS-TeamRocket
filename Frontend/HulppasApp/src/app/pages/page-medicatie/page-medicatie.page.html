@@ -6,11 +6,11 @@
         <ion-title>medicatie</ion-title>
     </ion-toolbar>
 </ion-header>
-<ion-content *ngIf="this.personService.person">
-    <ion-card *ngFor="let medicijn of this.personService.person.mediciijnlijst">
+<ion-content>
+    <ion-card>
         <ion-card-header>
             <ion-card-title>
-                <h3>{{medicijn.naam}}</h3>
+                <h3>Paracetamol</h3>
             </ion-card-title>
             <ion-card-content>
                 <ion-grid>
@@ -19,7 +19,7 @@
                             <strong>Bijwerkingen:</strong>
                         </ion-col>
                         <ion-col>
-                            <p>{{medicijn.bijwerkingen}}</p>
+                            <p>Licht bij zijn hoofd</p>
                         </ion-col>
                     </ion-row>
                     <ion-row>
@@ -27,7 +27,7 @@
                             <strong>Frequentie: </strong>
                         </ion-col>
                         <ion-col>
-                            <p>{{medicijn.frequentie}}</p>
+                            <p>Twee maal daags</p>
                         </ion-col>
                     </ion-row>
                     <ion-row>
@@ -35,7 +35,7 @@
                             <strong>Bezit: </strong>
                         </ion-col>
                         <ion-col>
-                            <p>{{medicijn.bezit}}</p>
+                            <p>Ja</p>
                         </ion-col>
                     </ion-row>
                     <ion-row>
@@ -43,7 +43,7 @@
                             <strong>Extra: </strong>
                         </ion-col>
                         <ion-col>
-                            <p>{{medicijn.extra}}</p>
+                            <p>Deze persoon neemt ook anti-depresiva, dus niet te veel paracetamol nemen.</p>
                         </ion-col>
                     </ion-row>
                 </ion-grid>
