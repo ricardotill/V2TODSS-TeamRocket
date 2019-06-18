@@ -10,7 +10,7 @@ declare var $: any;
 export class GegevensComponent implements OnInit {
   person: any;
 
-  constructor(private personService: Person) { }
+  constructor(private personService: Person) {}
 
   ngOnInit() {
     this.showPatients();
@@ -20,6 +20,6 @@ export class GegevensComponent implements OnInit {
   }
 
   showPatients() {
-    this.personService.personVariable();
+    this.personService.personsVariable();
   }
 }

@@ -2,17 +2,17 @@
   <div class="row mt-4">
     <div class="col-sm mb-2">
       <div class="card">
-        <div class=""><img src="{{this.personService.patient.fotourl}}" class="rounded mt-3 ml-3 img-thumbnail" alt="Profile Picture">
+        <div class=""><img src="assets/img/example-profilepic.jpg" class="rounded mt-3 ml-3 img-thumbnail" alt="Profile Picture">
           <div class="btn-group float-right mt-3 mr-3" role="group">
-            <a class="btn btn-primary" routerLink="/medicijnen/{{this.personService.patient.PersoonId}}" role="button"><i class="fas fa-prescription-bottle-alt"></i> Medicijnen</a>
-            <a class="btn btn-primary" routerLink="/vertrouwenspersonen/{{this.personService.patient.PersoonId}}" role="button"><i class="fas fa-users"></i> Vertrouwenspersonen</a>
-            <a class="btn btn-primary" routerLink="/genereren/{{this.personService.patient.PersoonId}}" role="button"><i class="fas fa-id-card"></i> Hulppas Genereren</a>
+            <a class="btn btn-primary" routerLink="/medicijnen/1" role="button"><i class="fas fa-prescription-bottle-alt"></i> Medicijnen</a>
+            <a class="btn btn-primary" routerLink="/vertrouwenspersonen/1" role="button"><i class="fas fa-users"></i> Vertrouwenspersonen</a>
+            <a class="btn btn-primary" routerLink="/genereren/1" role="button"><i class="fas fa-id-card"></i> Hulppas Genereren</a>
             <a class="btn btn-outline-secondary" routerLink="/gegevens" on><i class="fas fa-times"></i></a>
           </div>
         </div>
         <div class="card-body">
-          <h1 class="card-title">{{this.personService.patient.naam}}</h1>
-          <h3 class="card-subtitle mb-2 text-muted">{{this.personService.patient.PersoonId}}</h3>
+          <h1 class="card-title">Frederike van Eijk</h1>
+          <h3 class="card-subtitle mb-2 text-muted">#3456781</h3>
           <form class="mt-4">
 
             <div class="accordion" id="accordionExample">
@@ -34,19 +34,19 @@
                       </div>
                       <div class="form-group">
                         <label for="adres">Adres</label>
-                        <input type="text" class="form-control" id="adres" value="{{this.personService.patient.adres}}">
+                        <input type="text" class="form-control" id="adres" value="Straat 12 0000AB Stad">
                       </div>
                       <div class="form-group">
                         <label for="geboortedatum">Geboortedatum</label>
-                        <input type="string" class="form-control" id="geboortedatum" value="{{this.personService.patient.geboortedatum}}">
+                        <input type="date" class="form-control" id="geboortedatum" value="1987-11-30">
                       </div>
                       <div class="form-group">
                         <label for="telefoon">Telefoonnummer</label>
-                        <input type="tel" class="form-control" id="telefoon" value="{{this.personService.patient.telefoon}}">
+                        <input type="tel" class="form-control" id="telefoon" value="+31600000000">
                       </div>
                       <div class="form-group">
                         <label for="verzekering">Verzekeringsgegevens</label>
-                        <input type="text" class="form-control" id="verzekering" value="{{this.personService.patient.verzekeringsgegevens}}">
+                        <input type="text" class="form-control" id="verzekering" value="GVZ">
                       </div>
                       <div class="form-group">
                         <label for="beschrijving">Beschrijving</label>
@@ -68,21 +68,42 @@
 
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                   <div class="card-body">
+                    <label for="naam">Naam</label>
+                    <div class="input-group">
+                      <input id="naam" type="text" class="form-control" placeholder="Meneer Zijlstra" aria-label="Naam" aria-describedby="naam" disabled>
+                      <div class="input-group-append">
+                        <button class="btn btn-primary" type="button" id="adres">Edit</button>
+                      </div>
+                    </div>
+                    <label for="adres">Adres</label>
+                    <div class="input-group">
+                      <input id="adres" type="text" class="form-control" placeholder="Straat 12 0000AB Stad" aria-label="Adres" aria-describedby="adres" disabled>
+                      <div class="input-group-append">
+                        <button class="btn btn-primary" type="button" id="adres">Edit</button>
+                      </div>
+                    </div>
+                    <label for="adres">Telefoonnummer 1</label>
+                    <div class="input-group">
+                      <input id="telefoon1" type="text" class="form-control" placeholder="+316 316 316 316" aria-label="Telefoonnummer 1" aria-describedby="telefoon1" disabled>
+                      <div class="input-group-append">
+                        <button class="btn btn-primary" type="button" id="telefoon1">Edit</button>
+                      </div>
+                    </div>
+                    <label for="adres">Telefoonnummer 2</label>
+                    <div class="input-group">
+                      <input id="telefoon2" type="text" class="form-control" placeholder="+316 316 316 316" aria-label="Telefoonnummer 2" aria-describedby="telefoon2" disabled>
+                      <div class="input-group-append">
+                        <button class="btn btn-primary" type="button" id="telefoon2">Edit</button>
+                      </div>
+                    </div>
+
                     <div class="form-group">
                       <label for="naam-huisarts">Naam</label>
-                      <input type="text" class="form-control" id="naam-huisarts" value="{{this.personService.patient.Huisarts.naam}}">
+                      <input type="text" class="form-control" id="naam-huisarts" value="Meneer Zijlstra">
                     </div>
                     <div class="form-group">
                       <label for="adres-huisarts">Adres</label>
-                      <input type="text" class="form-control" id="adres-huisarts" value="{{this.personService.patient.Huisarts.adres}}">
-                    </div>
-                    <div class="form-group">
-                      <label for="telefoon-huisarts">Telefoonnummer</label>
-                      <input type="tel" class="form-control" id="tel-huisarts" value="{{this.personService.patient.Huisarts.telefoonnummer}}">
-                    </div>
-                    <div class="form-group">
-                      <label for="spoed-huisarts">Spoednummer</label>
-                      <input type="tel" class="form-control" id="spoed-huisarts" value="{{this.personService.patient.Huisarts.spoednummer}}">
+                      <input type="text" class="form-control" id="adres-huisarts" value="">
                     </div>
                   </div>
                 </div>
@@ -98,44 +119,25 @@
                   </div>
                   <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                     <div class="card-body">
-                      <div class="form-group">
-                        <label for="handeling1">Handeling 1</label>
-                        <input type="text" class="form-control" id="handeling1" value="{{this.personService.patient.handeling[1]}}">
+                      <label for="handeling1">Handeling 1</label>
+                      <div class="input-group">
+                        <input id="handeling1" type="text" class="form-control" placeholder="Zorg dat er geen mensen om mij heen blijven staan en vraag mij om te gaan zitten." aria-label="Handeling 1" aria-describedby="handeling1" disabled>
+                        <div class="input-group-append">
+                          <button class="btn btn-primary" type="button" id="handeling1">Edit</button>
+                        </div>
                       </div>
-                      <div class="form-group">
-                        <label for="handeling2">Handeling 2</label>
-                        <input type="text" class="form-control" id="handeling2" value="{{this.personService.patient.handeling[2]}}">
+                      <label for="handeling2">Handeling 2</label>
+                      <div class="input-group">
+                        <input id="handeling2" type="text" class="form-control" placeholder="Zorg dat er geen mensen om mij heen blijven staan en vraag mij om te gaan zitten." aria-label="Handeling 2" aria-describedby="handeling2" disabled>
+                        <div class="input-group-append">
+                          <button class="btn btn-primary" type="button" id="handeling2">Edit</button>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
             </div>
             <button class="btn btn-primary mt-3" type="submit">Opslaan</button>
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-danger mt-3 float-right" data-toggle="modal" data-target="#modal">
-              Verwijderen
-            </button>
-
-            <!-- Modal -->
-            <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="modalLabel">Persoon verwijderen</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    Je staat op het punt een persoon te verwijderen. Ga je hiermee akkoord?
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Terug</button>
-                    <button type="button" class="btn btn-danger" (click)="deletePatient">Persoon Verwijderen</button>
-                  </div>
-                </div>
-              </div>
-            </div>
           </form>
         </div>
       </div>

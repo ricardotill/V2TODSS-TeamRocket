@@ -8,50 +8,54 @@ import { Http } from '@angular/http';
   providedIn: 'root'
 })
 export class Person {
-  allUrl: string;
-  byCodeUrl: string;
-  examplePhoto: string;
+  url: string;
   public patients: any;
+  public patient: any;
 
   // TODO fix errors
 
 
   constructor(private http: Http) {
-    //this.allUrl  =   "http://quater.serveo.net/api/persoon";
-    this.allUrl = "http://hulppas.herokuapp.com/api/verwardepersoon"
-    this.examplePhoto = "http://unsplash.it/100/100";
-    this.byCodeUrl = "";
+    this.url  =   "http://nonnisi.serveo.net/api/persoon";
   }
 
   getPatients() {
-    return this.http.get(this.allUrl).pipe(map(res => res.json()));
+    //Get all patient
+    return this.http.get(this.url).pipe(map(res => res.json()));
   }
 
-  postPatient() {
-    let body =
-    {
-      "$class": "org.example.basic.Persoon",
-      "PersoonId": "string",
-      "adres": "string",
-      "geboortedatum": "string",
-      "telefoon": "string",
-      "verzekeringsgegevens": "string",
-      "fotourl": "string",
-      "qrCode": "string",
-      "probleem": "string",
-      "Huisarts": [],
-      "handeling": [],
-      "vertrouwenspersonen": [],
-      "mediciijnlijst": []
-    };
-
-    return this.http.post(this.allUrl, body);
+  getPatient(id) {
+    // Get patient by id
+    return this.http.get(this.url+'/'+id).pipe(map(res => res.json()));
   }
 
-  async personVariable(){
+  postPatient(body) {
+    // New patient
+    return this.http.post(this.url, body);
+  }
+
+  putPatient(id, body) {
+    // Update patient
+    return this.http.put(this.url+'/'+id, body);
+  }
+
+  deletePatient(id) {
+    // Delete patient
+    return this.http.delete(this.url+id).pipe(map(res => res.json()));
+  }
+
+  async personsVariable(){
     await this.getPatients()
       .subscribe(person => {
       this.patients = person;
+      console.log(this.patients);
+    });
+  }
+
+  async personVariable(id){
+    await this.getPatient(id)
+      .subscribe(person => {
+      this.patient = person;
       console.log(this.patients);
     });
   }
