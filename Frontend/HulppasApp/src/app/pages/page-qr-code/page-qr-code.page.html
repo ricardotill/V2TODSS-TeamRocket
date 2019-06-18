@@ -1,6 +1,6 @@
 <ion-header>
     <ion-toolbar>
-        <ion-title>Talenter</ion-title>
+        <ion-title>{{this.loginService.check}}</ion-title>
     </ion-toolbar>
 </ion-header>
 
@@ -9,12 +9,11 @@
         <img src="../../../assets/images/logo.svg">
     </div>
     <ion-card>
-        <ion-card-header *ngIf="this.loginService.check">
-            <ion-card-title>{{this.loginService.check}}</ion-card-title>
-        </ion-card-header>
         <ion-card-content>
             <p> Deze applicatie is gemaakt om verwarde mensen te helpen. Als medewerker kunt u inloggen en als bijstaander hoeft dat niet.</p>
             <p> Scan de QR-code op het pasje van de bijstaander om meer informatie te verkrijgen.</p>
+            <hr>
+            <p><strong>Vergeet als medewerker niet in te loggen!</strong></p>
         </ion-card-content>
     </ion-card>
     <div class="buttons">

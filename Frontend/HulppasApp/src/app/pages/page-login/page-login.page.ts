@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-page-login',
@@ -11,7 +12,9 @@ export class PageLoginPage implements OnInit {
   name: string;
   password: string;
 
-  constructor(private storage: Storage, private router: Router) { }
+  constructor(private storage: Storage, 
+              private router: Router,
+              private alertController: AlertController) { }
 
   ngOnInit() {
   }
@@ -22,8 +25,24 @@ export class PageLoginPage implements OnInit {
     } else {
       console.log(this.name, this.password);
       this.storage.set('id',this.name);
-      this.router.navigate(['/page-qr-code']);
-      //Hier komt de post en de response opslaan in de storage
+      this.loginCorrect();
     }
   }
+
+  async loginCorrect(){
+
+      const alert = await this.alertController.create({
+        header: 'Succes!',
+        message: 'U krijgt nu meer informatie te zien over een persoon',
+        buttons: [
+          {
+            text: 'confirm',
+            handler: () => {
+              this.router.navigate(['page-qr-code']);
+            }
+          }
+        ]
+      });
+      await alert.present();
+  };
 }

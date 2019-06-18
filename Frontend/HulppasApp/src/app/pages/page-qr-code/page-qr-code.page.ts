@@ -16,8 +16,9 @@ export class PageQrCodePage {
     private personService: PersonService,
     private loginService: LoginCheckService) { }
 
-  ionDidViewEnter(){
+    ionViewDidEnter() {
     this.loginService.checkLogin();
+    console.log(this.loginService.check);
   }
 
   scanQr() {
