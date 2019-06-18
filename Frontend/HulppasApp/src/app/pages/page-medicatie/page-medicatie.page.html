@@ -6,20 +6,54 @@
         <ion-title>medicatie</ion-title>
     </ion-toolbar>
 </ion-header>
-
-<ion-content *ngIf="this.personService.person">
+<!-- *ngIf="this.personService.person" -->
+<ion-content>
     <ion-card>
         <ion-card-header>
             <ion-card-title>
-                <h3>{{this.personService.person[0].medicijnen.medicijn_0}}</h3>
+                <h3>Paracetamol</h3>
             </ion-card-title>
-        </ion-card-header>
-    </ion-card>
-    <ion-card>
-        <ion-card-header>
-            <ion-card-title>
-                <h3>{{this.personService.person[0].medicijnen.medicijn_1}}</h3>
-            </ion-card-title>
+            <ion-card-content>
+                <ion-grid>
+                    <ion-row>
+                        <ion-col>
+                            <strong>Bijwerkingen:</strong>
+                        </ion-col>
+                        <ion-col class="list">
+                            <li>
+                                <p>Licht in zijn hoofd</p>
+                            </li>
+                            <li>
+                                <p>Kaal worden</p>
+                            </li>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col>
+                            <strong>Frequentie: </strong>
+                        </ion-col>
+                        <ion-col>
+                            <p>Twee maal daags</p>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col>
+                            <strong>Bezit: </strong>
+                        </ion-col>
+                        <ion-col>
+                            <p>ja, rechter jaszak</p>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col>
+                            <strong>Extra: </strong>
+                        </ion-col>
+                        <ion-col>
+                            <p>Deze persoon heeft anti-depresiva, dus geen ibuprofen</p>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-card-content>
         </ion-card-header>
     </ion-card>
 </ion-content>
