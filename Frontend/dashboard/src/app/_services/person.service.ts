@@ -17,7 +17,8 @@ export class Person {
 
 
   constructor(private http: Http) {
-    this.allUrl  =   "http://quater.serveo.net/api/persoon";
+    //this.allUrl  =   "http://quater.serveo.net/api/persoon";
+    this.allUrl = "http://hulppas.herokuapp.com/api/verwardepersoon"
     this.examplePhoto = "http://unsplash.it/100/100";
     this.byCodeUrl = "";
   }
