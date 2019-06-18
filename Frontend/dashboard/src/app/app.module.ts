@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 
@@ -15,6 +16,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { PatientComponent } from './patient/patient.component';
 import { VertrouwenspersonenComponent } from './vertrouwenspersonen/vertrouwenspersonen.component';
+import { NieuwpatientComponent } from './nieuwpatient/nieuwpatient.component';
 
 @NgModule({
   declarations: [
@@ -28,9 +30,11 @@ import { VertrouwenspersonenComponent } from './vertrouwenspersonen/vertrouwensp
     LogoutComponent,
     HomepageComponent,
     PatientComponent,
-    VertrouwenspersonenComponent
+    VertrouwenspersonenComponent,
+    NieuwpatientComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

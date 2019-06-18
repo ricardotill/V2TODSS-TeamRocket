@@ -1,0 +1,175 @@
+<div class="container mt-3 mb-3">
+  <div class="card">
+    <div class="card-body">
+      <h1 class="card-title">Nieuwe patient
+        <a class="btn btn-outline-danger float-right" routerLink="/gegevens" on><i class="fas fa-times"></i></a>
+      </h1>
+        <div class="accordion" id="accordionExample">
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h2 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Algemeen
+                </button>
+              </h2>
+            </div>
+
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div class="card-body">
+                  <label for="adres">Profielfoto</label>
+                  <div class="custom-file mb-3">
+                    <input type="file" class="custom-file-input" id="foto">
+                    <label class="custom-file-label" for="foto" data-browse="Foto kiezen">Voeg de foto toe</label>
+                  </div>
+                  <div class="form-group">
+                      <label for="naam">Volledige naam</label>
+                      <input [(ngModel)]="this.naam" type="text" class="form-control" id="naam" placeholder="Frederik de Jonge">
+                    </div>
+                  <div class="form-group">
+                    <label for="adres">Adres</label>
+                    <input [(ngModel)]="this.adres" type="text" class="form-control" id="adres" placeholder="Straatnaam 10 0000AB Stad">
+                  </div>
+                  <div class="form-group">
+                    <label for="geboortedatum">Geboortedatum</label>
+                    <input [(ngModel)]="this.geboortedatum" type="string" class="form-control" id="geboortedatum" placeholder="1988-11-30">
+                  </div>
+                  <div class="form-group">
+                    <label for="telefoon">Telefoonnummer</label>
+                    <input [(ngModel)]="this.telefoon" type="tel" class="form-control" id="telefoon" placeholder="+31600000000">
+                  </div>
+                  <div class="form-group">
+                    <label for="verzekering">Verzekeringsgegevens</label>
+                    <input [(ngModel)]="this.verzekeringsgegevens" type="text" class="form-control" id="verzekering" placeholder="VGZ">
+                  </div>
+                  <div class="form-group">
+                    <label for="beschrijving">Probleem</label>
+                    <textarea  [(ngModel)]="this.probleem" class="form-control" id="beschrijving" rows="3" placeholder="Deze patient kan niet goed dealen met harde geluiden."></textarea>
+                  </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="card">
+            <div class="card-header" id="headingTwo">
+              <h2 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
+                  Huisarts
+                </button>
+              </h2>
+            </div>
+
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+              <div class="card-body">
+                <div class="form-group">
+                  <label for="naam-huisarts">Naam</label>
+                  <input type="text" class="form-control" id="naam-huisarts" placeholder="Dokter H.A. Brandsma">
+                </div>
+                <div class="form-group">
+                  <label for="adres-huisarts">Adres</label>
+                  <input [(ngModel)]="this.polieadres_h" type="text" class="form-control" id="adres-huisarts" placeholder="Adres 10 0000AB Stad">
+                </div>
+                <div class="form-group">
+                  <label for="telefoon-huisarts">Telefoonnummer</label>
+                  <input [(ngModel)]="this.telefoonnummer_h" type="tel" class="form-control" id="tel-huisarts" placeholder="+31600000000">
+                </div>
+                <div class="form-group">
+                  <label for="spoed-huisarts">Spoednummer</label>
+                  <input [(ngModel)]="this.spoedlijn_h" type="tel" class="form-control" id="spoed-huisarts" placeholder="+31600000000">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+              <div class="card-header" id="headingThree">
+                <h2 class="mb-0">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Handelingen
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="handeling1">Handeling 1</label>
+                    <input [(ngModel)]="this.handeling1" type="text" class="form-control" id="handeling1" placeholder="Zorg dat mensen niet om hem heen blijven staan">
+                  </div>
+                  <div class="form-group">
+                    <label for="handeling2">Handeling 2</label>
+                    <input [(ngModel)]="this.handeling2" type="text" class="form-control" id="handeling2" placeholder="Geef ... medicijn uit zijn binnenzak">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="heading4">
+                <h2 class="mb-0">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                    Medicijnen
+                  </button>
+                </h2>
+              </div>
+              <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordionExample">
+                <div class="card-body">
+                    <div class="form-group">
+                      <label for="naam">Naam incl. hoeveelheid per inname</label>
+                      <input type="text" class="form-control" id="naam" value="Paracetamol 500mg">
+                    </div>
+                    <div class="form-group">
+                      <label for="frequentie">Frequentie van inname</label>
+                      <input type="text" class="form-control" id="frequentie" value="2x per dag">
+                    </div>
+                    <div class="form-group">
+                      <label for="bijzich" class="mr-4">Standaard bij zich</label>
+                      <div id="bijzich" class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="radioJa" value="Ja">
+                        <label class="form-check-label" for="inlineRadio1">Ja</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="radioNee" value="Nee">
+                        <label class="form-check-label" for="inlineRadio2">Nee</label>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="opmerkingen">Opmerkingen</label>
+                        <textarea class="form-control" id="opmerkingen" rows="3"></textarea>
+                      </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header" id="heading5">
+                <h2 class="mb-0">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                    Vertrouwenspersoon
+                  </button>
+                </h2>
+              </div>
+              <div id="collapse5" class="collapse" aria-labelledby="heading5" data-parent="#accordionExample">
+                  <div class="card-body">
+                        <div class="form-group">
+                          <label for="naam">Volledige naam</label>
+                          <input type="text" class="form-control" id="naam" placeholder="Peter van Eijk">
+                        </div>
+                        <div class="form-group">
+                          <label for="rol">Rol</label>
+                          <input type="text" class="form-control" id="rol" placeholder="Vader">
+                        </div>
+                        <div class="form-group">
+                          <label for="adres">Adres</label>
+                          <input type="text" class="form-control" id="adres" placeholder="Adres 10 0000AB Stad">
+                        </div>
+                        <div class="form-group">
+                          <label for="phone">Telefoonnummer</label>
+                          <input type="tel" class="form-control" id="phone" placeholder="+31600000000">
+                        </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <button class="btn btn-primary mt-3" (click)="postPatient()">Toevoegen</button>
+    </div>
+  </div>
+</div>

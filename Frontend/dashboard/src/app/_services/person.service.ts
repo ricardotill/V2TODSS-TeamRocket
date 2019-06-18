@@ -16,7 +16,7 @@ export class Person {
 
 
   constructor(private http: Http) {
-    this.url  =   "http://nonnisi.serveo.net/api/persoon";
+    this.url  =   "https://equidem.serveo.net/api/Persoon";
   }
 
   getPatients() {
