@@ -6,12 +6,11 @@
         <ion-title>medicatie</ion-title>
     </ion-toolbar>
 </ion-header>
-<!-- *ngIf="this.personService.person" -->
-<ion-content>
-    <ion-card>
+<ion-content *ngIf="this.personService.person">
+    <ion-card *ngFor="let medicijn of this.personService.person.mediciijnlijst">
         <ion-card-header>
             <ion-card-title>
-                <h3>Paracetamol</h3>
+                <h3>{{medicijn.naam}}</h3>
             </ion-card-title>
             <ion-card-content>
                 <ion-grid>
@@ -19,13 +18,8 @@
                         <ion-col>
                             <strong>Bijwerkingen:</strong>
                         </ion-col>
-                        <ion-col class="list">
-                            <li>
-                                <p>Licht in zijn hoofd</p>
-                            </li>
-                            <li>
-                                <p>Kaal worden</p>
-                            </li>
+                        <ion-col>
+                            <p>{{medicijn.bijwerkingen}}</p>
                         </ion-col>
                     </ion-row>
                     <ion-row>
@@ -33,7 +27,7 @@
                             <strong>Frequentie: </strong>
                         </ion-col>
                         <ion-col>
-                            <p>Twee maal daags</p>
+                            <p>{{medicijn.frequentie}}</p>
                         </ion-col>
                     </ion-row>
                     <ion-row>
@@ -41,7 +35,7 @@
                             <strong>Bezit: </strong>
                         </ion-col>
                         <ion-col>
-                            <p>ja, rechter jaszak</p>
+                            <p>{{medicijn.bezit}}</p>
                         </ion-col>
                     </ion-row>
                     <ion-row>
@@ -49,7 +43,7 @@
                             <strong>Extra: </strong>
                         </ion-col>
                         <ion-col>
-                            <p>Deze persoon heeft anti-depresiva, dus geen ibuprofen</p>
+                            <p>{{medicijn.extra}}</p>
                         </ion-col>
                     </ion-row>
                 </ion-grid>

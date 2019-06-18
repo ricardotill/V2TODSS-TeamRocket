@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { map } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
 import { LoadingController } from '@ionic/angular';
 
 
@@ -14,13 +12,13 @@ export class PersonService {
 
 
   constructor(private http: Http, private loadingCtrl: LoadingController) {
-    this.url = "http://quater.serveo.net/api/persoon";
+    this.url = "http://nonnisi.serveo.net/api/persoon/";
   }
 
   async getPerson(qr_code) {
     let loading = await this.loadingCtrl.create();
     await loading.present();
-    this.http.get(this.url+"/"+qr_code)
+    this.http.get(this.url+qr_code)
       .subscribe(
         (person) => {
           this.person = person.json();

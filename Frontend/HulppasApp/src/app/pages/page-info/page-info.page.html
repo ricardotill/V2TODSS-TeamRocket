@@ -49,6 +49,14 @@
                         {{this.personService.person.telefoon}}
                     </ion-col>
                 </ion-row>
+                <ion-row *ngIf="this.loginService.check">
+                    <ion-col class="default">
+                        verzekering:
+                    </ion-col>
+                    <ion-col>
+                        {{this.personService.person.verzekeringsgegevens}}
+                    </ion-col>
+                </ion-row>
             </ion-grid>
         </ion-card-content>
     </ion-card>
@@ -59,29 +67,14 @@
             {{this.personService.person.probleem}}
         </ion-card-content>
     </ion-card>
-
-    <ion-card *ngIf="this.loginService.check">
-        <ion-card-content>
-            <ion-grid>
-                <ion-row>
-                    <ion-col size="2" class="default">
-                        1.
-                    </ion-col>
-                    <ion-col>
-                        {{this.personService.person.handelingen.handeling_0}}
-                    </ion-col>
-                </ion-row>
-                <ion-row>
-                    <ion-col size="2" class="default">
-                        2.
-                    </ion-col>
-                    <ion-col>
-                        {{this.personService.person.handelingen.handeling_1}}
-                    </ion-col>
-                </ion-row>
-            </ion-grid>
-        </ion-card-content>
-    </ion-card>
+    <div *ngIf="this.loginService.check">
+        <h3 padding>Handelingen</h3>
+        <ion-card *ngFor="let handeling of this.personService.person.handeling">
+            <ion-card-content>
+                <p>{{handeling}}</p>
+            </ion-card-content>
+        </ion-card>
+    </div>
     <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="this.loginService.check">
         <ion-fab-button (click)="logData()">
             <ion-icon name="checkmark"></ion-icon>

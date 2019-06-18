@@ -9,6 +9,9 @@
         <img src="../../../assets/images/logo.svg">
     </div>
     <ion-card>
+        <ion-card-header *ngIf="this.loginService.check">
+            <ion-card-title>{{this.loginService.check}}</ion-card-title>
+        </ion-card-header>
         <ion-card-content>
             <p> Deze applicatie is gemaakt om verwarde mensen te helpen. Als medewerker kunt u inloggen en als bijstaander hoeft dat niet.</p>
             <p> Scan de QR-code op het pasje van de bijstaander om meer informatie te verkrijgen.</p>

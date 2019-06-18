@@ -1,21 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { Router } from '@angular/router';
 import { PersonService } from 'src/app/services/person.service';
+import { LoginCheckService } from 'src/app/services/login-check.service';
 
 @Component({
   selector: 'app-page-qr-code',
   templateUrl: './page-qr-code.page.html',
   styleUrls: ['./page-qr-code.page.scss'],
 })
-export class PageQrCodePage implements OnInit {
+export class PageQrCodePage {
 
   constructor(private barcodeScanner: BarcodeScanner,
     private router: Router,
-    private personService: PersonService) { }
+    private personService: PersonService,
+    private loginService: LoginCheckService) { }
 
-  ngOnInit() {
-
+  ionDidViewEnter(){
+    this.loginService.checkLogin();
   }
 
   scanQr() {

@@ -1,8 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonContent, LoadingController } from '@ionic/angular';
+import { IonContent } from '@ionic/angular';
 import { PersonService } from 'src/app/services/person.service';
 import { LoginCheckService } from 'src/app/services/login-check.service';
-import { Http } from '@angular/http';
 
 @Component({
   selector: 'app-page-contact',
