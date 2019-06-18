@@ -6,8 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./medicijnen.component.scss']
 })
 export class MedicijnenComponent implements OnInit {
-
-  constructor() { }
+  jsonTemplate: {};
+  constructor() {
+    this.jsonTemplate = {
+      "naam": "",
+      "frequentie": "",
+      "bijzich": "",
+      "opmerkingen" : ""
+    }
+  }
 
   ngOnInit() {
   }

@@ -20,8 +20,7 @@ export class GenererenComponent implements OnInit {
   }
 
   public exportHulppas() {
-    html2canvas(document.getElementById('hulppas-voor'), { allowTaint : true }).then(canvas => {
-      document.body.appendChild(canvas);
+    html2canvas(document.getElementById('hulppas-voor'), { allowTaint : true, useCORS : true }).then(canvas => {
       const a = document.createElement('a');
       // toDataURL defaults to png, so we need to request a jpeg, then convert for file download.
       a.href = canvas.toDataURL('image/jpeg').replace('image/jpeg', 'image/octet-stream');
@@ -29,8 +28,7 @@ export class GenererenComponent implements OnInit {
       a.click();
   });
 
-    html2canvas(document.getElementById('hulppas-achter')).then(canvas => {
-      document.body.appendChild(canvas);
+    html2canvas(document.getElementById('hulppas-achter'), { allowTaint : true, useCORS : true }).then(canvas => {
       const a = document.createElement('a');
       // toDataURL defaults to png, so we need to request a jpeg, then convert for file download.
       a.href = canvas.toDataURL('image/jpeg').replace('image/jpeg', 'image/octet-stream');

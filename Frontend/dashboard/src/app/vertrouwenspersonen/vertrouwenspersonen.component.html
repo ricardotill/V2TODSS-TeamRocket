@@ -1,0 +1,84 @@
+<div class="container mt-4 mb-1">
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title">Vertrouwenspersonen
+                <div class="btn-group float-right" role="group">
+                    <a class="btn btn-primary" routerLink="/gegevens/124124" role="button"><i class="fas fa-users-cog"></i> Persoonsgegevens</a>
+                    <a class="btn btn-primary" routerLink="/medicijnen/124124" role="button"><i class="fas fa-prescription-bottle-alt"></i> Medicijnen</a>
+                    <a class="btn btn-primary" routerLink="/genereren/124124" role="button"><i class="fas fa-id-card"></i> Hulppas Genereren</a>
+                    <a class="btn btn-outline-secondary" routerLink="/gegevens" on><i class="fas fa-times"></i></a>
+                  </div>
+            </h1>
+            <h3 class="card-subtitle mb-2 text-muted">Jan de Lange #124124</h3>
+
+                <div class="accordion" id="accordionExample">
+                  <div class="card">
+                    <div class="card-header" id="persoon1">
+                      <h2 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
+                          Peter van Eijk - Vader
+                        </button>
+                      </h2>
+                    </div>
+
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                      <div class="card-body">
+                          <form>
+                            <div class="form-group">
+                              <label for="naam">Volledige naam</label>
+                              <input type="text" class="form-control" id="naam" value="Peter van Eijk">
+                            </div>
+                            <div class="form-group">
+                              <label for="rol">Rol</label>
+                              <input type="text" class="form-control" id="rol" value="Vader">
+                            </div>
+                            <div class="form-group">
+                              <label for="adres">Adres</label>
+                              <input type="text" class="form-control" id="adres" value="Adres 10 0000AB Stad">
+                            </div>
+                            <div class="form-group">
+                              <label for="phone">Telefoonnummer</label>
+                              <input type="tel" class="form-control" id="phone" value="+31600000000">
+                            </div>
+                            <button class="btn btn-primary mt-3" type="submit">Opslaan</button>
+                          </form>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="card">
+                      <div class="card-header" id="headingThree">
+                        <h2 class="mb-0">
+                          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Nieuw persoon toevoegen
+                          </button>
+                        </h2>
+                      </div>
+                      <div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-parent="#accordionExample">
+                          <div class="card-body">
+                              <form id='nieuw'>
+                                <div class="form-group">
+                                  <label for="naam">Volledige naam</label>
+                                  <input type="text" class="form-control" id="naam" placeholder="Peter van Eijk">
+                                </div>
+                                <div class="form-group">
+                                  <label for="rol">Rol</label>
+                                  <input type="text" class="form-control" id="rol" placeholder="Vader">
+                                </div>
+                                <div class="form-group">
+                                  <label for="adres">Adres</label>
+                                  <input type="text" class="form-control" id="adres" placeholder="Adres 10 0000AB Stad">
+                                </div>
+                                <div class="form-group">
+                                  <label for="phone">Telefoonnummer</label>
+                                  <input type="tel" class="form-control" id="phone" placeholder="+31600000000">
+                                </div>
+                                <button class="btn btn-primary mt-3" type="submit">Toevoegen</button>
+                              </form>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
