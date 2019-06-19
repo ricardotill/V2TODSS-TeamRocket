@@ -18,8 +18,8 @@ export class NieuwpatientComponent implements OnInit {
   geboortedatum: string;
   telefoon: string;
   verzekeringsgegevens: string;
-  fotourl: string;
-  qrCode: string = '60';
+  fotourl: string = "http://unsplash.it/100/100";
+  qrCode: string;
   probleem: string;
   handeling1: string;
   handeling2: string;
@@ -75,8 +75,8 @@ export class NieuwpatientComponent implements OnInit {
       "geboortedatum": this.geboortedatum,
       "telefoonnummer": this.telefoon,
       "verzekeringsgegevens": this.verzekeringsgegevens,
-      "fotourl": "hoi",
-      "qrCode": this.qrCode,
+      "fotourl": this.fotourl,
+      "qrCode": this.PersoonId,
       "probleem": this.probleem,
       "huisarts": 'resource:1405',
       "handelingen": [

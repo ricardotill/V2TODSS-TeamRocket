@@ -159,7 +159,7 @@
       </div>
   </div>
 
-    <div class="alert alert-danger mt-3 content mt-4 " role="alert " *ngIf="!this.personService.patient && this.persoonService.loading">
+    <div *ngIf="!this.personService.patient" class="alert alert-danger mt-3 content mt-4 " role="alert ">
         <button type="button " routerLink='/gegevens' class="close " aria-label="Close ">
       <span aria-hidden="true ">&times;</span>
     </button>
@@ -170,3 +170,4 @@
             De persoon kan nooit bestaan hebben of de persoon is laatst verwijderd.
         </p>
     </div>
+  </div>
