@@ -22,7 +22,7 @@ export class PatientComponent implements OnInit {
   geboortedatum: string;
   telefoon: string;
   verzekeringsgegevens: string;
-  fotourl: string = 'http://unsplash.it/100/100';
+  fotourl: string = ' ';
   qrCode: string = '60';
   probleem: string;
   handeling1: string;
@@ -52,14 +52,6 @@ export class PatientComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this.person = this.personService.getPatient(this.params.get('id'));
-    // this.person (params: ParamMap) =>
-    //     this.personService.getPatient(params.get('id')))
-    // );
-    // this.loading = true;
-    // this.route.paramMap.subscribe(params => {
-    //   this.id = (params.get('id'));
-    // });
 
     // this.person = this.personService.personVariable(this.id);
 
@@ -68,30 +60,41 @@ export class PatientComponent implements OnInit {
     // console.log(this.person);
 
     // this.showPatient();
-    this.personService.getPatient('61');
+
+    //this.personService.getPatient(id);
+
     //this.person = this.route.data.pipe(map(res => res.json()));
     //console.log(this.person);
+
+    let id = this.route.snapshot.paramMap.get('id');
+    this.personService.getPatient(id);
   }
 
-  showPatient() {
-    // this.loading = true;
-    // this.route.paramMap.subscribe(params => {
-    //   this.id = (params.get('id'));
-    // });
-
-    // this.person = this.personService.personVariable(this.id);
-    // console.log(this.personService.patient);
-    // console.log(this.person);
-    this.loadPatientsInVars();
-    //$('#beschrijving').value = this.personService.patient.beschrijving;
-    this.loading = false;
+  async showPatient() {
+    let id = this.route.snapshot.paramMap.get('id');
+    await this.personService.getPatient(id);
   }
 
-  assignPerson() {
-    return this.personService.personVariable(this.id);
-  }
+  // showPatient() {
+  //   // this.loading = true;
+  //   // this.route.paramMap.subscribe(params => {
+  //   //   this.id = (params.get('id'));
+  //   // });
+
+  //   // this.person = this.personService.personVariable(this.id);
+  //   // console.log(this.personService.patient);
+  //   // console.log(this.person);
+  //   this.loadPatientsInVars();
+  //   //$('#beschrijving').value = this.personService.patient.beschrijving;
+  //   this.loading = false;
+  // }
+
+  // assignPerson() {
+  //   return this.personService.personVariable(this.id);
+  // }
 
   loadPatientsInVars() {
+    console.log(this.personService.patient);
     this.PersoonId = this.personService.patient.PersoonId;
     this.naam = this.personService.patient.naam;
     this.adres = this.personService.patient.adres;
@@ -119,27 +122,23 @@ export class PatientComponent implements OnInit {
     // bezit_m: boolean;
   }
 
-  updatePatient() {
-    let body = {
-      'persoonId':this.PersoonId,
-      'owner':'resource:9186',
-      'naam':this.naam,
-      'adres': this.adres,
-      'telefoon':this.telefoon,
-      'verzekeringsgegevens':this.verzekeringsgegevens,
-      'fotourl':this.fotourl,
-      'qrCode':this.qrCode,
-      'probleem':this.probleem,
-      'huisarts':'resource:1',
-      'handeling':this.handeling,
-      'vertrouwenspersonen':'resource:1',
-      'mediciijnenlijst':'resource:1'
-    }
-    this.personService.putPatient(this.id, body);
+  async updatePatient() {
+    $('#btn-create').prop('disabled', true);
+    $('#spinner').removeClass('d-none');
+    $('#btn-txt').addClass('d-none');
+
+    await this.personService.putPatient();
+
+    $('#btn-create').prop('disabled', false);
+    $('#spinner').addClass('d-none');
+    $('#btn-txt').removeClass('d-none');
   }
 
   deletePatient() {
-    this.personService.deletePatient(this.id);
+    $('#modal').modal({
+      show: false
+    });
+    this.personService.deletePatient();
     this.router.navigate(['/gegevens']);
   }
 

@@ -2,162 +2,164 @@
     <div class=" row mt-4 ">
         <div class="col-sm mb-2 ">
             <div class="card ">
-                <div class=" "><img src="{{this.fotourl}} " class="rounded mt-3 ml-3 img-thumbnail " alt='Profielfoto'>
+                <div class=" "><img src="{{this.personService.patient.fotourl}}" id="profilepicture" class="rounded mt-3 ml-3 img-thumbnail img-fluid" alt='Profielfoto'>
                     <div class="btn-group float-right mt-3 mr-3 " role="group ">
-                        <a class="btn btn-primary " routerLink="/medicijnen/{{this.PersoonId}} " role="button "><i class="fas fa-prescription-bottle-alt "></i> Medicijnen</a>
-                        <a class="btn btn-primary " routerLink="/vertrouwenspersonen/{{this.PersoonId}} " role="button "><i class="fas fa-users "></i> Vertrouwenspersonen</a>
-                        <a class="btn btn-primary " routerLink="/genereren/{{this.PersoonId}} " role="button "><i class="fas fa-id-card "></i> Hulppas Genereren</a>
-                        <a class="btn btn-outline-secondary " routerLink="/gegevens " role="button "><i class="fas fa-times "></i></a>
+                        <a class="btn btn-primary" routerLink="/medicijnen/{{this.personService.patient.PersoonId}}" role="button "><i class="fas fa-prescription-bottle-alt "></i> Medicijnen</a>
+                        <a class="btn btn-primary" routerLink="/vertrouwenspersonen/{{this.personService.patient.PersoonId}}" role="button "><i class="fas fa-users "></i> Vertrouwenspersonen</a>
+                        <a class="btn btn-primary" routerLink="/genereren/{{this.personService.patient.PersoonId}}" role="button "><i class="fas fa-id-card "></i> Hulppas Genereren</a>
+                        <a class="btn btn-outline-secondary " routerLink="/gegevens" role="button "><i class="fas fa-times "></i></a>
                     </div>
                 </div>
-                <div class="card-body ">
+                <div class="card-body">
                     <h1 class="card-title">{{this.personService.patient.naam}}</h1>
-                    <h3 class="card-subtitle mb-2 text-muted ">{{this.personService.patient.PersoonId}}</h3>
+                    <h3 class="card-subtitle mb-2 text-muted ">#{{this.personService.patient.PersoonId}}</h3>
 
-                    <div class="accordion " id="accordionExample ">
-                        <div class="card ">
-                            <div class="card-header " id="headingOne ">
-                                <h2 class="mb-0 ">
-                                    <button class="btn btn-link " type="button " data-toggle="collapse " data-target="#collapseOne " aria-expanded="true " aria-controls="collapseOne ">
-                      Algemeen
-                    </button>
-                                </h2>
+                    <div class="accordion" id="accordion">
+                      <div class="card">
+                        <div class="card-header" id="headingAlgemeen">
+                          <h2 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseAlgemeen" aria-expanded="true" aria-controls="collapseAlgemeen">
+                              Algemeen
+                            </button>
+                          </h2>
+                        </div>
+
+                        <div id="collapseAlgemeen" class="collapse show" aria-labelledby="headingAlgemeen" data-parent="#accordion">
+                          <div class="card-body">
+                              <label for="adres">Profielfoto</label>
+                              <div class="custom-file mb-3">
+                                  <input type="file" class="custom-file-input" id="foto ">
+                                  <label ngDefaultControl class="custom-file-label" for="foto" data-browse="Foto kiezen">Voeg de foto toe</label>
+                              </div>
+                              <div class="form-group">
+                                  <label for="fotourl">Foto Url (voor testen)</label>
+                                  <input ngDefaultControl [(ngModel)]="this.personService.patient.fotourl" type="text" class="form-control " id="fotourl">
+                              </div>
+                              <div class="form-group">
+                                  <label for="adres">Adres</label>
+                                  <input ngDefaultControl [(ngModel)]="this.personService.patient.adres" type="text" class="form-control " id="adres ">
+                              </div>
+                              <div class="form-group">
+                                  <label for="geboortedatum ">Geboortedatum</label>
+                                  <input ngDefaultControl [(ngModel)]="this.personService.patient.geboortedatum" type="string" class="form-control " id="geboortedatum ">
+                              </div>
+                              <div class="form-group">
+                                  <label for="telefoon ">Telefoonnummer</label>
+                                  <input ngDefaultControl [(ngModel)]="this.personService.patient.telefoonnummer" type="tel" class="form-control " id="telefoon ">
+                              </div>
+                              <div class="form-group">
+                                  <label for="verzekering ">Verzekeringsgegevens</label>
+                                  <input ngDefaultControl [(ngModel)]="this.personService.patient.verzekeringsgegevens" type="text " class="form-control " id="verzekering ">
+                              </div>
+                              <div class="form-group">
+                                  <label for="probleem">Probleem</label>
+                                  <textarea [(ngModel)]="this.personService.patient.probleem" class="form-control" id="probleem" rows="3"></textarea>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class="card-header" id="headingHuisarts">
+                          <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseHuisarts" aria-expanded="false" aria-controls="collapseHuisarts">
+                              Huisarts
+                            </button>
+                          </h2>
+                        </div>
+                        <div id="collapseHuisarts" class="collapse" aria-labelledby="headingHuisarts" data-parent="#accordion">
+                          <div class="card-body">
+                            <!-- <div class="form-group ">
+                              <label for="naam-huisarts ">Naam</label>
+                              <input [(ngModel)]="huisartsNaam_h " type="text " class="form-control " id="naam-huisarts " value="{{this.personService.patient.Huisarts.naam}} ">
                             </div>
+                            <div class="form-group ">
+                              <label for="adres-huisarts ">Adres</label>
+                              <input [(ngModel)]="polieadres_h " type="text " class="form-control " id="adres-huisarts " value="{{this.personService.patient.Huisarts.adres}} ">
+                            </div>
+                            <div class="form-group ">
+                              <label for="telefoon-huisarts ">Telefoonnummer</label>
+                              <input [(ngModel)]="telefoonnummer_h " type="tel " class="form-control " id="tel-huisarts " value="{{this.personService.patient.Huisarts.telefoonnummer}} ">
+                            </div>
+                            <div class="form-group ">
+                              <label for="spoed-huisarts ">Spoednummer</label>
+                              <input [(ngModel)]="spoedlijn_h " type="tel " class="form-control " id="spoed-huisarts " value="{{this.personService.patient.Huisarts.spoednummer}} ">
+                            </div> -->
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class="card-header" id="headingHandelingen">
+                          <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseHandelingen" aria-expanded="false" aria-controls="collapseHandelingen">
+                              Handelingen
+                            </button>
+                          </h2>
+                        </div>
+                        <div id="collapseHandelingen" class="collapse" aria-labelledby="headingHandelingen" data-parent="#accordion">
+                          <div class="card-body">
+                            <div class="form-group ">
+                              <label for="handeling1 ">Handeling 1</label>
+                              <input ngDefaultControl [(ngModel)]="this.personService.patient.handelingen[0]" type="text " class="form-control " id="handeling1 ">
+                            </div>
+                            <div class="form-group ">
+                                <label for="handeling2 ">Handeling 2</label>
+                                <input ngDefaultControl [(ngModel)]="this.personService.patient.handelingen[1]" type="text " class="form-control " id="handeling2 ">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
 
-                            <div id="collapseOne " class="collapse show " aria-labelledby="headingOne " data-parent="#accordionExample ">
-                                <div class="card-body ">
-                                    <label for="adres ">Profielfoto</label>
-                                    <div class="custom-file mb-3 ">
-                                        <input type="file " class="custom-file-input " id="foto ">
-                                        <label ngDefaultControl class="custom-file-label " for="foto " data-browse="Foto kiezen ">Voeg de foto toe</label>
-                                    </div>
-                                    <div class="form-group ">
-                                        <label for="adres ">Adres</label>
-                                        <input ngDefaultControl [(ngModel)]="this.adres " type="text " class="form-control " id="adres ">
-                                    </div>
-                                    <div class="form-group ">
-                                        <label for="geboortedatum ">Geboortedatum</label>
-                                        <input ngDefaultControl [(ngModel)]="this.geboortedatum " type="string " class="form-control " id="geboortedatum ">
-                                    </div>
-                                    <div class="form-group ">
-                                        <label for="telefoon ">Telefoonnummer</label>
-                                        <input ngDefaultControl [(ngModel)]="this.telefoon " type="tel " class="form-control " id="telefoon " value="{{this.personService.patient.telefoon}} ">
-                                    </div>
-                                    <div class="form-group ">
-                                        <label for="verzekering ">Verzekeringsgegevens</label>
-                                        <input ngDefaultControl [(ngModel)]="this.verzekeringsgegevens " type="text " class="form-control " id="verzekering " value="{{this.personService.patient.verzekeringsgegevens}} ">
-                                    </div>
-                                    <div class="form-group ">
-                                        <label for="probleem ">Probleem</label>
-                                        <textarea ngDefaultControl [(ngModel)]="this.probleem " class="form-control " id="probleem " rows="3 "></textarea>
-                                    </div>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-danger mt-3" data-toggle="modal" data-target="#modal">
+                      Verwijderen
+                    </button>
+                    <button id="btn-create" class="btn btn-primary mt-3 float-right" (click)="updatePatient()">
+                      <span id="spinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                      <div id="btn-txt">Opslaan</div>
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="modalLabel">Persoon verwijderen</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  Je staat op het punt een persoon te verwijderen. Ga je hiermee akkoord?
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-primary" data-dismiss="modal">Terug</button>
+                                  <button type="button" class="btn btn-danger" (click)="deletePatient()">Persoon Verwijderen</button>
                                 </div>
                             </div>
                         </div>
-
-
-                        <div class="card ">
-                            <div class="card-header " id="headingTwo ">
-                                <h2 class="mb-0 ">
-                                    <button class="btn btn-link " type="button " data-toggle="collapse " data-target="#collapseTwo " aria-expanded="true " aria-controls="collapseOne ">
-                      Huisarts
-                    </button>
-                                </h2>
-                            </div>
-
-                            <!-- <div id="collapseTwo " class="collapse " aria-labelledby="headingTwo " data-parent="#accordionExample ">
-                  <div class="card-body ">
-                    <div class="form-group ">
-                      <label for="naam-huisarts ">Naam</label>
-                      <input [(ngModel)]="huisartsNaam_h " type="text " class="form-control " id="naam-huisarts " value="{{this.personService.patient.Huisarts.naam}} ">
                     </div>
-                    <div class="form-group ">
-                      <label for="adres-huisarts ">Adres</label>
-                      <input [(ngModel)]="polieadres_h " type="text " class="form-control " id="adres-huisarts " value="{{this.personService.patient.Huisarts.adres}} ">
-                    </div>
-                    <div class="form-group ">
-                      <label for="telefoon-huisarts ">Telefoonnummer</label>
-                      <input [(ngModel)]="telefoonnummer_h " type="tel " class="form-control " id="tel-huisarts " value="{{this.personService.patient.Huisarts.telefoonnummer}} ">
-                    </div>
-                    <div class="form-group ">
-                      <label for="spoed-huisarts ">Spoednummer</label>
-                      <input [(ngModel)]="spoedlijn_h " type="tel " class="form-control " id="spoed-huisarts " value="{{this.personService.patient.Huisarts.spoednummer}} ">
-                    </div>
-                  </div>
-                </div>
-              </div> -->
-
-                            <div class="card ">
-                                <div class="card-header " id="headingThree ">
-                                    <h2 class="mb-0 ">
-                                        <button class="btn btn-link collapsed " type="button " data-toggle="collapse " data-target="#collapseThree " aria-expanded="false " aria-controls="collapseThree ">
-                        Handelingen
-                      </button>
-                                    </h2>
-                                </div>
-                                <div id="collapseThree " class="collapse " aria-labelledby="headingThree " data-parent="#accordionExample ">
-                                    <div class="card-body ">
-                                        <div class="form-group ">
-                                            <label for="handeling1 ">Handeling 1</label>
-                                            <input ngDefaultControl [(ngModel)]="handeling1 " type="text " class="form-control " id="handeling1 " value="{{this.personService.patient.handeling[0]}} ">
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="handeling2 ">Handeling 2</label>
-                                            <input ngDefaultControl [(ngModel)]="handeling2 " type="text " class="form-control " id="handeling2 " value="{{this.personService.patient.handeling[1]}} ">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="btn btn-primary mt-3 " type="submit ">Opslaan</button>
-                        <!-- Button trigger modal -->
-                        <button type="button " class="btn btn-danger mt-3 float-right " data-toggle="modal " data-target="#modal ">
-              Verwijderen
-            </button>
-
-                        <!-- Modal -->
-                        <div class="modal fade " id="modal " tabindex="-1 " role="dialog " aria-labelledby="modalLabel " aria-hidden="true ">
-                            <div class="modal-dialog " role="document ">
-                                <div class="modal-content ">
-                                    <div class="modal-header ">
-                                        <h5 class="modal-title " id="modalLabel ">Persoon verwijderen</h5>
-                                        <button type="button " class="close " data-dismiss="modal " aria-label="Close ">
-                      <span aria-hidden="true ">&times;</span>
-                    </button>
-                                    </div>
-                                    <div class="modal-body ">
-                                        Je staat op het punt een persoon te verwijderen. Ga je hiermee akkoord?
-                                    </div>
-                                    <div class="modal-footer ">
-                                        <button type="button " class="btn btn-primary " data-dismiss="modal ">Terug</button>
-                                        <button type="button " class="btn btn-danger " (click)="deletePatient() ">Persoon Verwijderen</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4 ">
-            <div class="card mb-2 ">
-                <div class="card-body ">
-                    <h5 class="card-title ">Activiteit</h5>
-                    <h6 class="card-subtitle mb-2 text-muted ">Datum | Tijd</h6>
-                    Details, Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime nostrum at quae blanditiis, quam eius eligendi voluptates dicta! Voluptate quas eius ex qui architecto accusantium, neque eveniet quae voluptas suscipit.
-                </div>
-            </div>
-            <div class="card mb-2 ">
-                <div class="card-body ">
-                    <h5 class="card-title ">Activiteit</h5>
-                    <h6 class="card-subtitle mb-2 text-muted ">Datum | Tijd</h6>
-                    Details, Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime nostrum at quae blanditiis, quam eius eligendi voluptates dicta! Voluptate quas eius ex qui architecto accusantium, neque eveniet quae voluptas suscipit.
-                </div>
-            </div>
         </div>
     </div>
+    </div>
+    <div class="col-sm-4 ">
+      <div class="card mb-2 ">
+          <div class="card-body ">
+              <h5 class="card-title ">Activiteit</h5>
+              <h6 class="card-subtitle mb-2 text-muted ">Datum | Tijd</h6>
+              Details, Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime nostrum at quae blanditiis, quam eius eligendi voluptates dicta! Voluptate quas eius ex qui architecto accusantium, neque eveniet quae voluptas suscipit.
+          </div>
+      </div>
+      <div class="card mb-2 ">
+          <div class="card-body ">
+              <h5 class="card-title ">Activiteit</h5>
+              <h6 class="card-subtitle mb-2 text-muted ">Datum | Tijd</h6>
+              Details, Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime nostrum at quae blanditiis, quam eius eligendi voluptates dicta! Voluptate quas eius ex qui architecto accusantium, neque eveniet quae voluptas suscipit.
+          </div>
+      </div>
+  </div>
 
-    <div class="alert alert-danger mt-3 content mt-4 " role="alert " *ngIf="!this.personService.patient && this.loading ">
+    <div class="alert alert-danger mt-3 content mt-4 " role="alert " *ngIf="!this.personService.patient && this.persoonService.loading">
         <button type="button " routerLink='/gegevens' class="close " aria-label="Close ">
       <span aria-hidden="true ">&times;</span>
     </button>
@@ -168,4 +170,3 @@
             De persoon kan nooit bestaan hebben of de persoon is laatst verwijderd.
         </p>
     </div>
-</div>

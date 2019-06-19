@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Person } from '../_services';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 //import { Http } from '@angular/http';
 declare var $: any;
 
@@ -11,14 +11,14 @@ declare var $: any;
   styleUrls: ['./nieuwpatient.component.scss']
 })
 export class NieuwpatientComponent implements OnInit {
-  PersoonId: string = '61';
+  PersoonId: string;
   owner: string = 'resource:9186';
   naam: string;
   adres: string;
   geboortedatum: string;
   telefoon: string;
   verzekeringsgegevens: string;
-  fotourl: string = 'http://unsplash.it/100/100';
+  fotourl: string;
   qrCode: string = '60';
   probleem: string;
   handeling1: string;
@@ -38,17 +38,20 @@ export class NieuwpatientComponent implements OnInit {
   bijwerkingen_m: string;
   bezit_m: boolean;
 
-  url: string = "https://equidem.serveo.net/api/Persoon";
+  url: string = "https://illo.serveo.net/api/Persoon";
 
   constructor(
     private personService: Person,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
     ) {
 
   }
 
   ngOnInit() {
+    let id = this.route.snapshot.paramMap.get('id');
+    this.personService.getPatient(id);
 
   }
 
@@ -63,23 +66,6 @@ export class NieuwpatientComponent implements OnInit {
       }),
       observe: 'response'
     };
-
-    // let body = {
-    //   'PersoonId':this.PersoonId,
-    //   'owner':'resource:9186',
-    //   'naam':this.naam,
-    //   'adres': this.adres,
-    //   'geboortedatum': this.geboortedatum,
-    //   'telefoonnummer':this.telefoon,
-    //   'verzekeringsgegevens':this.verzekeringsgegevens,
-    //   'fotourl':"",
-    //   'qrCode':this.qrCode,
-    //   'probleem':this.probleem,
-    //   'huisarts':'resource:1405',
-    //   'handelingen':this.handeling,
-    //   'vertrouwenspersonen':['resource:2446'],
-    //   'medicijnenlijst':['resource:9318']
-    // }
 
     let body = {
       "PersoonId": this.PersoonId,
@@ -108,7 +94,7 @@ export class NieuwpatientComponent implements OnInit {
     await this.http.post(this.url, body, httpOptions)
     .subscribe((data) => { console.log(data); } );
 
-    //this.router.navigate(['/gegevens/'+this.PersoonId]);
+    this.router.navigate(['/gegevens/'+this.PersoonId]);
   }
 
 }
