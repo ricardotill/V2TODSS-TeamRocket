@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PersonService } from '../../services/person.service';
 import { LoginCheckService } from '../../services/login-check.service';
-import { LoadingController, NavParams } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
 import { Http } from '@angular/http';
 
 import { AlertController } from '@ionic/angular';

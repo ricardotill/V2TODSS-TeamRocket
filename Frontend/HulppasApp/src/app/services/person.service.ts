@@ -10,9 +10,8 @@ export class PersonService {
   url: string;
   person: any;
 
-
   constructor(private http: Http, private loadingCtrl: LoadingController) {
-    this.url = "http://nonnisi.serveo.net/api/persoon/";
+    this.url = "http://equidem.serveo.net/api/persoon/";
   }
 
   async getPerson(qr_code) {

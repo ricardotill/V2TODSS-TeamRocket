@@ -7,6 +7,20 @@ import { PersonService } from 'src/app/services/person.service';
   styleUrls: ['./page-medicatie.page.scss'],
 })
 export class PageMedicatiePage {
+  collapse: boolean = false;
+  automaticClose : boolean = false;
 
   constructor(private personService: PersonService) { }
+
+  ionViewDidEnter(){
+  }
+
+  toggle() {
+    if(this.collapse == true){
+      this.collapse = false;
+    }
+    else{
+      this.collapse = true;
+    }
+  }
 }

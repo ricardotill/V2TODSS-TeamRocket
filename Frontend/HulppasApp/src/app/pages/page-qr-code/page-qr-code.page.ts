@@ -18,14 +18,15 @@ export class PageQrCodePage {
 
     ionViewDidEnter() {
     this.loginService.checkLogin();
-    console.log(this.loginService.check);
   }
 
   scanQr() {
     this.barcodeScanner.scan().then(data => {
+      if(data){
       this.personService.getPerson(data.text).then(() => {
         this.router.navigate(['/tabs/pages/page-info']);
       });
+    }
     }).catch(err => {
       console.log('Error', err);
     });

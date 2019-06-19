@@ -10,11 +10,11 @@
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
 @import './theme/variables.scss';
-
-*{
+* {
     font-family: 'Roboto', sans-serif;
 }
-.form{
+
+.form {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -23,7 +23,7 @@
     // transform: translateY(150%);
 }
 
-.input{
+.input {
     font-size: 16px;
     width: 75%;
     position: relative;
@@ -32,7 +32,7 @@
     margin: 1%;
 }
 
-.input input{
+.input input {
     width: 100%;
     height: 100%;
     color: $textColor;
@@ -41,7 +41,7 @@
     outline: none;
 }
 
-.input label{
+.input label {
     position: absolute;
     bottom: 0px;
     left: 0%;
@@ -51,7 +51,7 @@
     border-bottom: 1px solid #a8a8a8;
 }
 
-.input label::after{
+.input label::after {
     content: "";
     position: absolute;
     left: 0px;
@@ -63,47 +63,51 @@
     transition: all 0.3s ease;
 }
 
-.content{
+.content {
     position: absolute;
     bottom: 5px;
     left: 0px;
     transition: all 0.3s ease;
 }
 
-.input input:focus + .label .content,
-.input input:valid + .label .content{
+.input input:focus+.label .content,
+.input input:valid+.label .content {
     transform: translateY(-150%);
     font-size: 14px;
     color: $textColor;
 }
 
-.input input:focus + .label::after, .input input:valid + .label::after{
+.input input:focus+.label::after,
+.input input:valid+.label::after {
     transform: translateX(0%);
 }
 
-ion-card{
+ion-card {
     border-radius: 5px;
     --background: white !important;
-    
 }
 
-ion-content{
+ion-content {
     --background: #f8f8f8f8;
 }
 
-ion-toolbar{
+ion-toolbar {
     --background: #FFC629 !important;
 }
-ion-card{
-    border-radius: 3px !important;
 
+ion-card {
+    border-radius: 3px !important;
 }
-ion-button{
+
+ion-button {
     margin: 2vh;
     --border-radius: 3px !important;
 }
 
-ion-title{
+ion-title {
     color: $primaryColor;
 }
 
+.title {
+    text-align: center;
+}
