@@ -39,7 +39,6 @@ import { NieuwpatientComponent } from './nieuwpatient/nieuwpatient.component';
     AppRoutingModule,
     HttpClientModule,
     HttpModule
-
   ],
   providers: [
 

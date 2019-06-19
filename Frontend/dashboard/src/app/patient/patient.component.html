@@ -1,19 +1,18 @@
-<div class="container">
+<div class="container" *ngIf="this.personService.patient">
   <div class="row mt-4">
     <div class="col-sm mb-2">
       <div class="card">
-        <div class=""><img src="{{this.personService.patient.fotourl}}" class="rounded mt-3 ml-3 img-thumbnail" alt="Profile Picture">
+        <div class=""><img src="{{this.fotourl}}" class="rounded mt-3 ml-3 img-thumbnail" alt='Profielfoto'>
           <div class="btn-group float-right mt-3 mr-3" role="group">
-            <a class="btn btn-primary" routerLink="/medicijnen/{{this.personService.patient.PersoonId}}" role="button"><i class="fas fa-prescription-bottle-alt"></i> Medicijnen</a>
-            <a class="btn btn-primary" routerLink="/vertrouwenspersonen/{{this.personService.patient.PersoonId}}" role="button"><i class="fas fa-users"></i> Vertrouwenspersonen</a>
-            <a class="btn btn-primary" routerLink="/genereren/{{this.personService.patient.PersoonId}}" role="button"><i class="fas fa-id-card"></i> Hulppas Genereren</a>
-            <a class="btn btn-outline-secondary" routerLink="/gegevens" on><i class="fas fa-times"></i></a>
+            <a class="btn btn-primary" routerLink="/medicijnen/{{this.PersoonId}}" role="button"><i class="fas fa-prescription-bottle-alt"></i> Medicijnen</a>
+            <a class="btn btn-primary" routerLink="/vertrouwenspersonen/{{this.PersoonId}}" role="button"><i class="fas fa-users"></i> Vertrouwenspersonen</a>
+            <a class="btn btn-primary" routerLink="/genereren/{{this.PersoonId}}" role="button"><i class="fas fa-id-card"></i> Hulppas Genereren</a>
+            <a class="btn btn-outline-secondary" routerLink="/gegevens" role="button"><i class="fas fa-times"></i></a>
           </div>
         </div>
         <div class="card-body">
-          <h1 class="card-title">{{this.personService.patient.naam}}</h1>
-          <h3 class="card-subtitle mb-2 text-muted">{{this.personService.patient.PersoonId}}</h3>
-          <form class="mt-4">
+          <h1 class="card-title" [ngModel]="this.naam"></h1>
+          <h3 class="card-subtitle mb-2 text-muted" [ngModel]="this.PersoonId"></h3>
 
             <div class="accordion" id="accordionExample">
               <div class="card">
@@ -30,27 +29,27 @@
                       <label for="adres">Profielfoto</label>
                       <div class="custom-file mb-3">
                         <input type="file" class="custom-file-input" id="foto">
-                        <label class="custom-file-label" for="foto" data-browse="Foto kiezen">Voeg de foto toe</label>
+                        <label ngDefaultControl class="custom-file-label" for="foto" data-browse="Foto kiezen">Voeg de foto toe</label>
                       </div>
                       <div class="form-group">
                         <label for="adres">Adres</label>
-                        <input type="text" class="form-control" id="adres" value="{{this.personService.patient.adres}}">
+                        <input ngDefaultControl [(ngModel)]="this.adres" type="text" class="form-control" id="adres">
                       </div>
                       <div class="form-group">
                         <label for="geboortedatum">Geboortedatum</label>
-                        <input type="string" class="form-control" id="geboortedatum" value="{{this.personService.patient.geboortedatum}}">
+                        <input ngDefaultControl [(ngModel)]="this.geboortedatum" type="string" class="form-control" id="geboortedatum">
                       </div>
                       <div class="form-group">
                         <label for="telefoon">Telefoonnummer</label>
-                        <input type="tel" class="form-control" id="telefoon" value="{{this.personService.patient.telefoon}}">
+                        <input ngDefaultControl [(ngModel)]="this.telefoon" type="tel" class="form-control" id="telefoon" value="{{this.personService.patient.telefoon}}">
                       </div>
                       <div class="form-group">
                         <label for="verzekering">Verzekeringsgegevens</label>
-                        <input type="text" class="form-control" id="verzekering" value="{{this.personService.patient.verzekeringsgegevens}}">
+                        <input ngDefaultControl [(ngModel)]="this.verzekeringsgegevens" type="text" class="form-control" id="verzekering" value="{{this.personService.patient.verzekeringsgegevens}}">
                       </div>
                       <div class="form-group">
-                        <label for="beschrijving">Beschrijving</label>
-                        <textarea class="form-control" id="beschrijving" rows="3"></textarea>
+                        <label for="probleem">Probleem</label>
+                        <textarea ngDefaultControl [(ngModel)]="this.probleem" class="form-control" id="probleem" rows="3"></textarea>
                       </div>
                   </div>
                 </div>
@@ -66,27 +65,27 @@
                   </h2>
                 </div>
 
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <!-- <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                   <div class="card-body">
                     <div class="form-group">
                       <label for="naam-huisarts">Naam</label>
-                      <input type="text" class="form-control" id="naam-huisarts" value="{{this.personService.patient.Huisarts.naam}}">
+                      <input [(ngModel)]="huisartsNaam_h" type="text" class="form-control" id="naam-huisarts" value="{{this.personService.patient.Huisarts.naam}}">
                     </div>
                     <div class="form-group">
                       <label for="adres-huisarts">Adres</label>
-                      <input type="text" class="form-control" id="adres-huisarts" value="{{this.personService.patient.Huisarts.adres}}">
+                      <input [(ngModel)]="polieadres_h" type="text" class="form-control" id="adres-huisarts" value="{{this.personService.patient.Huisarts.adres}}">
                     </div>
                     <div class="form-group">
                       <label for="telefoon-huisarts">Telefoonnummer</label>
-                      <input type="tel" class="form-control" id="tel-huisarts" value="{{this.personService.patient.Huisarts.telefoonnummer}}">
+                      <input [(ngModel)]="telefoonnummer_h" type="tel" class="form-control" id="tel-huisarts" value="{{this.personService.patient.Huisarts.telefoonnummer}}">
                     </div>
                     <div class="form-group">
                       <label for="spoed-huisarts">Spoednummer</label>
-                      <input type="tel" class="form-control" id="spoed-huisarts" value="{{this.personService.patient.Huisarts.spoednummer}}">
+                      <input [(ngModel)]="spoedlijn_h" type="tel" class="form-control" id="spoed-huisarts" value="{{this.personService.patient.Huisarts.spoednummer}}">
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
 
               <div class="card">
                   <div class="card-header" id="headingThree">
@@ -100,11 +99,11 @@
                     <div class="card-body">
                       <div class="form-group">
                         <label for="handeling1">Handeling 1</label>
-                        <input type="text" class="form-control" id="handeling1" value="{{this.personService.patient.handeling[1]}}">
+                        <input ngDefaultControl [(ngModel)]="handeling1" type="text" class="form-control" id="handeling1" value="{{this.personService.patient.handeling[0]}}">
                       </div>
                       <div class="form-group">
                         <label for="handeling2">Handeling 2</label>
-                        <input type="text" class="form-control" id="handeling2" value="{{this.personService.patient.handeling[2]}}">
+                        <input ngDefaultControl [(ngModel)]="handeling2" type="text" class="form-control" id="handeling2" value="{{this.personService.patient.handeling[1]}}">
                       </div>
                     </div>
                   </div>
@@ -131,14 +130,14 @@
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Terug</button>
-                    <button type="button" class="btn btn-danger" (click)="deletePatient">Persoon Verwijderen</button>
+                    <button type="button" class="btn btn-danger" (click)="deletePatient()">Persoon Verwijderen</button>
                   </div>
                 </div>
               </div>
             </div>
-          </form>
         </div>
       </div>
+    </div>
     </div>
     <div class="col-sm-4">
       <div class="card mb-2">
@@ -156,5 +155,17 @@
           </div>
         </div>
     </div>
+  </div>
+
+  <div class="alert alert-danger mt-3 content mt-4" role="alert" *ngIf="!this.personService.patient && this.loading">
+    <button type="button" routerLink='/gegevens'  class="close" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="alert-heading">Persoon met dit ID is niet gevonden</h4>
+    <p>De persoon met het ID wat gespecificeerd staat in de adresbalk is niet gevonden.</p>
+    <hr>
+    <p class="mb-0">
+      De persoon kan nooit bestaan hebben of de persoon is laatst verwijderd.
+    </p>
   </div>
 </div>

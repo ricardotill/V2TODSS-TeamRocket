@@ -26,7 +26,11 @@ export class Person {
 
   getPatient(id) {
     // Get patient by id
-    return this.http.get(this.url+'/'+id).pipe(map(res => res.json()));
+    return this.http.get(this.url+'/'+id).subscribe(person => {
+      this.patients = person;
+      console.log(person);
+      console.log(this.patient);
+    });
   }
 
   postPatient(body) {
@@ -53,10 +57,14 @@ export class Person {
   }
 
   async personVariable(id){
-    await this.getPatient(id)
-      .subscribe(person => {
+    let p;
+      this.getPatient(id)
+      .subscribe((person) => {
       this.patient = person;
-      console.log(this.patients);
+      console.log(this.patient);
     });
+    return this.patient;
+    // this.patient = p;
+    // console.log(this.patient);
   }
 }

@@ -20,30 +20,30 @@
             <div class="col">
               <div id="hulppas-voor" class="hulppas">
                 <img src="assets/img/voorkant.png" alt="Voorkant Hulppas">
-                <div id="voornaam">
-                  Frederike
+                <div [ngModel]="voornaam">
+
                 </div>
-                <div id="tussenvoegsel">van</div>
-                <div id="achternaam">
-                  Eijk
+                <div [ngModel]="tussenvoegsel"></div>
+                <div [ngModel]="achternaam">
+
                 </div>
                 <div id="geboortedatum">
-                  10-10-1976
+                  {{ this.person.geboortedatum }}
                 </div>
-                <img id="qr-code-voor" src="https://klanten.tresamigosdevelopment.com/Parbo/api/show_qrcode.php?code=1234567890AAAAAA" alt="QR-code">
+                <img id="qr-code-voor" src="https://klanten.tresamigosdevelopment.com/Parbo/api/show_qrcode.php?code={{ this.person.qrCode }}" alt="QR-code">
                 <img id="profilepic" src="assets/img/example-profilepic.jpg" alt="Profilepic">
                 <div id="beschrijving">
-                  Als ik veel prikkels krijg, kan ik agressief overkomen. Op deze pas staan mensen die mij kunnen helpen.
+                  {{ this.person.probleem }}
                 </div>
                 <div id="shortlink">
-                  bit.ly/aBcDeFg
+                  bit.ly/{{ this.person.qrCode }}
                 </div>
               </div>
             </div>
             <div class="col">
               <div id="hulppas-achter" class="hulppas">
                 <img src="assets/img/achterkant.png" alt="Achterkant Hulppas">
-                <img id="qr-code-achter" src="https://klanten.tresamigosdevelopment.com/Parbo/api/show_qrcode.php?code=1234567890AAAAAA" alt="QR-code">
+                <img id="qr-code-achter" src="https://klanten.tresamigosdevelopment.com/Parbo/api/show_qrcode.php?code={{ this.person.qrCode }}" alt="QR-code">
                 <div id="vertrouwenspersoon-naam" class="achterkant-tekst">
                   Hendrik van Eijk
                 </div>
@@ -57,7 +57,7 @@
                   +316 00 00 00 00
                 </div>
                 <div id="adres" class="achterkant-tekst">
-                  Straatnaam 12 0000AB Stad
+                    {{ this.person.adres }}
                 </div>
               </div>
             </div>

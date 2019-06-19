@@ -50,7 +50,7 @@
           </div>
 
 
-          <div class="card">
+          <!-- <div class="card">
             <div class="card-header" id="headingTwo">
               <h2 class="mb-0">
                 <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
@@ -79,7 +79,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
 
           <div class="card">
               <div class="card-header" id="headingThree">
@@ -102,7 +102,7 @@
                 </div>
               </div>
             </div>
-            <div class="card">
+            <!-- <div class="card">
               <div class="card-header" id="heading4">
                 <h2 class="mb-0">
                   <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
@@ -114,11 +114,11 @@
                 <div class="card-body">
                     <div class="form-group">
                       <label for="naam">Naam incl. hoeveelheid per inname</label>
-                      <input type="text" class="form-control" id="naam" value="Paracetamol 500mg">
+                      <input type="text" class="form-control" id="naam" placeholder="Paracetamol 500mg">
                     </div>
                     <div class="form-group">
                       <label for="frequentie">Frequentie van inname</label>
-                      <input type="text" class="form-control" id="frequentie" value="2x per dag">
+                      <input type="text" class="form-control" id="frequentie" placeholder="2x per dag">
                     </div>
                     <div class="form-group">
                       <label for="bijzich" class="mr-4">Standaard bij zich</label>
@@ -137,9 +137,9 @@
                       </div>
                 </div>
               </div>
-            </div>
+            </div> -->
 
-            <div class="card">
+            <!-- <div class="card">
               <div class="card-header" id="heading5">
                 <h2 class="mb-0">
                   <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
@@ -167,9 +167,12 @@
                         </div>
                 </div>
               </div>
-            </div>
+            </div> -->
         </div>
-        <button class="btn btn-primary mt-3" (click)="postPatient()">Toevoegen</button>
+        <button id="btn-create" class="btn btn-primary mt-3" (click)="postPatient()">
+          <span id="spinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+          <div id="btn-txt">Creëeren</div>
+        </button>
     </div>
   </div>
 </div>
