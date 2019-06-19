@@ -6,85 +6,49 @@
         <ion-title>contact</ion-title>
     </ion-toolbar>
 </ion-header>
-<!-- *ngIf="this.personService.person" -->
+<!-- <ion-content [scrollEvents]="true" *ngIf="this.personService.person"> -->
 <ion-content [scrollEvents]="true">
+
+    <!-- Hier staan de vertrouwenspersonen die bij een verward persoon horen. -->
     <h1 class="title" id="vertrouwenspersoon">Vertrouwens persoon</h1>
     <ion-card>
         <ion-card-header>
-            <ion-card-title>Jan Karels</ion-card-title>
-            <ion-card-subtitle>Vertrouwens persoon</ion-card-subtitle>
+            <ion-card-title>{{this.personService.person.naam}}</ion-card-title>
+            <ion-card-subtitle><strong>Relatie: </strong>{{this.personService.person.relatie}}</ion-card-subtitle>
         </ion-card-header>
         <ion-card-content>
-            <h3 *ngIf="this.loginService.check">Daltonlaan 200 3743UX Utrecht</h3>
+            <h3 *ngIf="this.loginService.check">{{this.personService.person.adres}}</h3>
             <br>
             <p></p>
-            <ion-button href="tel:0645677654">
-                <ion-icon name="call" slot="end"></ion-icon>Bel
-            </ion-button>
-        </ion-card-content>
-    </ion-card>
-    <ion-card>
-        <ion-card-header>
-            <ion-card-title>Jan Karels</ion-card-title>
-            <ion-card-subtitle>Vertrouwens persoon</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-            <h3 *ngIf="this.loginService.check">Daltonlaan 200 3743UX Utrecht</h3>
-            <br>
-            <p></p>
-            <ion-button href="tel:0645677654">
+            <ion-button href={{this.tel}}+{{this.personService.person.telefoon}}>
                 <ion-icon name="call" slot="end"></ion-icon>Bel
             </ion-button>
         </ion-card-content>
     </ion-card>
 
-
+    <!-- Hier staat de doktor die bij een verward persoon hoort. -->
     <h1 class="title" id="huisarts">Huisarts</h1>
-
-    <!-- <ion-card *ngFor="let huisarts of this.personService.Huisarts">
-        <ion-card-header>
-            <ion-card-title>{{huisarts.naam}}</ion-card-title>
-            <ion-card-subtitle>Doktor</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-            <h3>{{huisarts.polieadres}}</h3>
-            <br>
-            <p>{{huisarts.info}}</p>
-
-            <ion-button href={{this.tel}}+{{huisarts.telefoonnummer}}>
-                <ion-icon name="call" slot="start"></ion-icon>Bel
-            </ion-button>
-
-            <ion-button href={{this.tel}}+{{huisarts.spoedlijn}}>
-                <ion-icon name="call" slot="start"></ion-icon>Spoedlijn
-            </ion-button>
-        </ion-card-content>
-    </ion-card> -->
-
     <ion-card>
         <ion-card-header>
-            <ion-card-title>Dr. Mario</ion-card-title>
+            <ion-card-title>{{this.personService.person.naam}}</ion-card-title>
             <ion-card-subtitle>Doktor</ion-card-subtitle>
         </ion-card-header>
         <ion-card-content>
-            <h3>Heidelberglaan 15 2341UX Utrecht</h3>
+            <h3>{{this.personService.person.polieadres}}</h3>
             <br>
-            <p>Dr Mario is beschikbaar van 08:00-17:00 op de normale lijn en 24/7 beschikbaar op de spoedlijn.</p>
+            <p>{{this.personService.person.info}}</p>
 
-            <ion-button href="tel:0612345678">
+            <ion-button href="{{this.tel}}+{{this.personService.person.telefoonnummer}}">
                 <ion-icon name="call" slot="start"></ion-icon>Bel
             </ion-button>
 
-            <ion-button href="tel:0687654321">
+            <ion-button href={{this.tel}}+{{this.personService.person.spoednummer}}>
                 <ion-icon name="call" slot="start"></ion-icon>Spoedlijn
             </ion-button>
         </ion-card-content>
     </ion-card>
 
-
-
-
-
+    <!-- Met deze knop scrol je snel naar de doktor, hiermee hoef je niet zelf langs alle vertrouwenspersonen te scrollen -->
     <ion-fab vertical="bottom" horizontal="end" slot="fixed">
         <ion-fab-button (click)="ScrollTo('huisarts')">
             <ion-icon name="medkit"></ion-icon>

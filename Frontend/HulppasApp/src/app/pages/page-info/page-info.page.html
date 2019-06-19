@@ -6,14 +6,18 @@
         <ion-title>Info</ion-title>
     </ion-toolbar>
 </ion-header>
-<!-- <ion-content *ngIf="this.personService.person"> -->
-<ion-content>
+<ion-content *ngIf="this.personService.person">
+    <!-- Een foto van een gebruiker, zal een standaard foto worden als de patient geen foto heeft -->
     <div class="user">
         <div class="user-picture">
             <img src="{{this.personService.person.fotourl}}" width="200" height="200">
+            <!-- <img src="../../../assets/images/user.png" width="200" height="200"> -->
         </div>
         <div class="user-background"></div>
     </div>
+
+    <!-- De standaard NAV gegevens van een patient -->
+    <h3 class="title">NAV gegevens</h3>
     <ion-card>
         <ion-card-content>
             <ion-grid>
@@ -61,23 +65,27 @@
         </ion-card-content>
     </ion-card>
 
-
+    <!-- Hier staat het algemene probleem wat een verward persoon kan hebben -->
+    <h3 class="title">Probleem</h3>
     <ion-card>
         <ion-card-content>
             {{this.personService.person.probleem}}
         </ion-card-content>
     </ion-card>
-    <div *ngIf="this.loginService.check">
-        <h3 padding>Handelingen</h3>
-        <ion-card *ngFor="let handeling of this.personService.person.handeling">
-            <ion-card-content>
-                <p>{{handeling}}</p>
-            </ion-card-content>
-        </ion-card>
-    </div>
+
+    <!-- Hier staan de handelingen met index als de volgorde van de stappen. -->
+    <h3 class="title">Handelingen</h3>
+    <ion-card>
+        <ion-card-content *ngFor="let handeling of this.personService.person.handeling; let i = index;">
+            <p class="handeling"><strong>{{i + 1}}.</strong> {{handeling}}</p>
+        </ion-card-content>
+    </ion-card>
+
+    <!-- Hiermee log je wat je hulpverlener heeft uitgevoerd. IS EEN CONCEPT, IS NIET AFGEHANDELD. -->
     <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="this.loginService.check">
         <ion-fab-button (click)="logData()">
             <ion-icon name="checkmark"></ion-icon>
         </ion-fab-button>
     </ion-fab>
+
 </ion-content>

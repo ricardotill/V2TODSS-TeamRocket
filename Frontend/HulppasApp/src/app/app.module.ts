@@ -14,6 +14,7 @@ import { HttpModule } from '@angular/http';
 import { HTTP } from '@ionic-native/http/ngx';
 import { IonicStorageModule } from '@ionic/storage';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+import { ModuleMedicatieModule } from './modules/module-medicatie/module-medicatie.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
     IonicStorageModule.forRoot(), 
     AppRoutingModule,
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
+    ModuleMedicatieModule
   ],
   providers: [
     StatusBar,
