@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { map, catchError } from 'rxjs/operators';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import {throwError, Observable} from 'rxjs';
+import { throwError, Observable } from 'rxjs';
 import { Http } from '@angular/http';
 
 @Injectable({
@@ -16,7 +16,7 @@ export class Person {
 
 
   constructor(private http: Http) {
-    this.url  =   "https://equidem.serveo.net/api/Persoon";
+    this.url = "https://equidem.serveo.net/api/Persoon";
   }
 
   getPatients() {
@@ -25,13 +25,13 @@ export class Person {
   }
 
   getPatient(id) {
-    // Get patient by id
-    return this.http.get(this.url+'/'+id).subscribe(person => {
-      this.patients = person;
-      console.log(person);
-      console.log(this.patient);
-    });
-  }
+    this.http.get(this.url + '/' + id)
+      .subscribe(
+        (person) => {
+          this.patient = person.json();
+          console.log(this.patient);
+        });
+  };
 
   postPatient(body) {
     // New patient
@@ -40,31 +40,31 @@ export class Person {
 
   putPatient(id, body) {
     // Update patient
-    return this.http.put(this.url+'/'+id, body);
+    return this.http.put(this.url + '/' + id, body);
   }
 
   deletePatient(id) {
     // Delete patient
-    return this.http.delete(this.url+id).pipe(map(res => res.json()));
+    return this.http.delete(this.url + id).pipe(map(res => res.json()));
   }
 
-  async personsVariable(){
-    await this.getPatients()
-      .subscribe(person => {
-      this.patients = person;
-      console.log(this.patients);
-    });
-  }
+  // async personsVariable() {
+  //   await this.getPatients()
+  //     .subscribe(person => {
+  //       this.patients = person;
+  //       console.log(this.patients);
+  //     });
+  // }
 
-  async personVariable(id){
-    let p;
-      this.getPatient(id)
-      .subscribe((person) => {
-      this.patient = person;
-      console.log(this.patient);
-    });
-    return this.patient;
-    // this.patient = p;
-    // console.log(this.patient);
-  }
+  // async personVariable(id) {
+  //   let p;
+  //   this.getPatient(id)
+  //     .subscribe((person) => {
+  //       this.patient = person;
+  //       console.log(this.patient);
+  //     });
+  //   return this.patient;
+  //   // this.patient = p;
+  //   // console.log(this.patient);
+  // }
 }
