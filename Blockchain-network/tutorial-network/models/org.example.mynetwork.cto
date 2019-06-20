@@ -1,0 +1,96 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+namespace org.example.basic
+
+asset Persoon identified by PersoonId {
+  o String PersoonId
+  --> Admin owner
+  o String naam
+  o String adres
+  o String geboortedatum
+  o String telefoonnummer
+  o String verzekeringsgegevens
+  o String fotourl default = '../../../assets/images/user.png'
+  o String qrCode
+  o String probleem
+  --> Huisarts huisarts
+  o String[] handelingen
+  --> VertrouwensPersoon[] vertrouwenspersonen
+  --> Medicatie[] medicijnen
+}
+
+asset PersoonPOC identified by PersoonId {
+  o String PersoonId
+  o String[] owner
+  o String naam
+  o String adres
+  o String geboortedatum
+  o String telefoonnummer
+  o String verzekeringsgegevens
+  o String fotourl default = '../../../assets/images/user.png'
+  o String qrCode
+  o String probleem
+  o String huisarts
+  o String[] handelingen
+  o String[] vertrouwenspersonen
+  o String[] medicijnen
+}
+
+
+participant Admin identified by AdminId {
+  o String AdminId
+  o String firstName
+  o String lastName
+}
+
+participant Huisarts identified by huisartsId {
+  o String huisartsId
+  o String naam
+  o String polieadres
+  o String info
+  o String telefoonnummer
+  o String spoednummer
+}
+
+participant VertrouwensPersoon identified by vertrouwsPersoonId {
+  o String vertrouwsPersoonId
+  o String naam
+  o String adres
+  o String telefoonnummer
+  o String relatie
+}
+
+participant Medicatie identified by medicatieId {
+  o String medicatieId
+  o String naam
+  o String bijwerking
+  o String frequentie
+  o Boolean bezit
+  o String extra
+}
+
+
+transaction PersoonTransaction {
+  --> Persoon asset
+  o String newValue
+}
+
+event UpdatePersoon {
+  --> Persoon asset
+}
+  
+transaction getALlData {
+  --> Persoon huisarts
+}
