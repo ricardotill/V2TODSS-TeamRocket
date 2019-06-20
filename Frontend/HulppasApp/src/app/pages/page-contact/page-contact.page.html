@@ -6,47 +6,50 @@
         <ion-title>contact</ion-title>
     </ion-toolbar>
 </ion-header>
-<!-- <ion-content [scrollEvents]="true" *ngIf="this.personService.person"> -->
 <ion-content [scrollEvents]="true">
 
     <!-- Hier staan de vertrouwenspersonen die bij een verward persoon horen. -->
-    <h1 class="title" id="vertrouwenspersoon">Vertrouwens persoon</h1>
-    <ion-card>
-        <ion-card-header>
-            <ion-card-title>{{this.personService.person.naam}}</ion-card-title>
-            <ion-card-subtitle><strong>Relatie: </strong>{{this.personService.person.relatie}}</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-            <h3 *ngIf="this.loginService.check">{{this.personService.person.adres}}</h3>
-            <br>
-            <p></p>
-            <ion-button href={{this.tel}}+{{this.personService.person.telefoon}}>
-                <ion-icon name="call" slot="end"></ion-icon>Bel
-            </ion-button>
-        </ion-card-content>
-    </ion-card>
+    <div *ngIf="this.personService.vertrouwenspersonen">
+        <h1 class="title" id="vertrouwenspersoon">Vertrouwens persoon</h1>
+        <ion-card *ngFor="let vertrouwenspersoon of this.personService.vertrouwenspersonen">
+            <ion-card-header>
+                <ion-card-title>{{vertrouwenspersoon.naam}}</ion-card-title>
+                <ion-card-subtitle><strong>Relatie: </strong>{{vertrouwenspersoon.relatie}}</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+                <h3 *ngIf="this.loginService.check">{{vertrouwenspersoon.adres}}</h3>
+                <br>
+                <p></p>
+                <ion-button href={{this.tel}}+{{vertrouwenspersoon.telefoonnummer}}>
+                    <ion-icon name="call" slot="end"></ion-icon>Bel
+                </ion-button>
+            </ion-card-content>
+        </ion-card>
+    </div>
 
     <!-- Hier staat de doktor die bij een verward persoon hoort. -->
-    <h1 class="title" id="huisarts">Huisarts</h1>
-    <ion-card>
-        <ion-card-header>
-            <ion-card-title>{{this.personService.person.naam}}</ion-card-title>
-            <ion-card-subtitle>Doktor</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-            <h3>{{this.personService.person.polieadres}}</h3>
-            <br>
-            <p>{{this.personService.person.info}}</p>
+    <div *ngIf="this.personService.huisarts">
+        <h1 class="title" id="huisarts">Huisarts</h1>
+        <ion-card>
+            <ion-card-header>
+                <ion-card-title>{{this.personService.huisarts[1]}}</ion-card-title>
+                <ion-card-subtitle>Doktor</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+                <h3>{{this.personService.huisarts[2]}}</h3>
+                <br>
+                <p>{{this.personService.huisarts[3]}}</p>
 
-            <ion-button href="{{this.tel}}+{{this.personService.person.telefoonnummer}}">
-                <ion-icon name="call" slot="start"></ion-icon>Bel
-            </ion-button>
+                <ion-button href="{{this.tel}}+{{this.personService.huisarts[4]}}">
+                    <ion-icon name="call" slot="start"></ion-icon>Bel
+                </ion-button>
 
-            <ion-button href={{this.tel}}+{{this.personService.person.spoednummer}}>
-                <ion-icon name="call" slot="start"></ion-icon>Spoedlijn
-            </ion-button>
-        </ion-card-content>
-    </ion-card>
+                <ion-button href={{this.tel}}+{{this.personService.huisarts[5]}}>
+                    <ion-icon name="call" slot="start"></ion-icon>Spoedlijn
+                </ion-button>
+            </ion-card-content>
+        </ion-card>
+    </div>
 
     <!-- Met deze knop scrol je snel naar de doktor, hiermee hoef je niet zelf langs alle vertrouwenspersonen te scrollen -->
     <ion-fab vertical="bottom" horizontal="end" slot="fixed">

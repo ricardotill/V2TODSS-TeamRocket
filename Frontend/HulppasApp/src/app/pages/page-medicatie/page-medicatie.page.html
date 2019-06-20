@@ -6,18 +6,18 @@
         <ion-title>medicatie</ion-title>
     </ion-toolbar>
 </ion-header>
-<!-- *ngIf="this.personService.person" -->
-<ion-content>
+
+<ion-content *ngIf="this.personService.medicijnen">
     <!-- Dit is een accordion die, waarmee je de data kan uitlaten vouwen en meer informatie krijgt. -->
     <div id="medicatie">
-        <div class="card">
+        <div class="card" *ngFor="let medicijn of this.personService.medicijnen">
             <div class="card-header">
                 <h2 class="mb-0">
-                    <button class="btn btn-block" data-toggle="collapse" attr.data-target="#id{{this.personService.person.medicatieId}}" aria-expanded="true" attr.aria-controls="{{this.personService.person.medicatieId}}" (click)="toggle()">
+                    <button class="btn btn-block" data-toggle="collapse" attr.data-target="#id{{medicijn.naam}}" aria-expanded="true" attr.aria-controls="{{this.personService.person.medicatieId}}" (click)="toggle()">
                         <ion-grid>
                             <ion-row>
                                 <ion-col class="ion-text-start">
-                                    <strong>{{this.personService.person.extra}}</strong>
+                                    <strong>{{medicijn.naam}}</strong>
                                 </ion-col>
                                 <ion-col class="ion-text-end">
                                     <ion-icon [name]="collapse ? 'arrow-up' :'arrow-down'">
@@ -29,7 +29,7 @@
                 </h2>
             </div>
 
-            <div id="id{{this.personService.person.medicatieId}}" class="collapse" aria-labelledby="headingOne" data-parent="#medicatie">
+            <div id="id{{medicijn.naam}}" class="collapse" aria-labelledby="headingOne" data-parent="#medicatie">
                 <div class="card-body">
                     <ion-grid>
                         <ion-row>
@@ -37,7 +37,7 @@
                                 <strong>Bijwerkingen:</strong>
                             </ion-col>
                             <ion-col>
-                                <p>{{this.personService.person.frequentie}}</p>
+                                <p>{{medicijn.bijwerkingen}}</p>
                             </ion-col>
                         </ion-row>
                         <ion-row>
@@ -45,7 +45,7 @@
                                 <strong>Frequentie: </strong>
                             </ion-col>
                             <ion-col>
-                                <p>{{this.personService.person.frequentie}}</p>
+                                <p>{{medicijn.frequentie}}</p>
                             </ion-col>
                         </ion-row>
                         <ion-row>
@@ -53,7 +53,8 @@
                                 <strong>Bezit: </strong>
                             </ion-col>
                             <ion-col>
-                                <p>{{this.personService.person.bezit}}</p>
+                                <p *ngIf="medicijn.bezit == 'true'">Ja</p>
+                                <p *ngIf="medicijn.bezit == 'false'">Nee</p>
                             </ion-col>
                         </ion-row>
                         <ion-row>
@@ -61,7 +62,7 @@
                                 <strong>Extra: </strong>
                             </ion-col>
                             <ion-col>
-                                <p>{{this.personService.person.extra}}</p>
+                                <p>{{medicijn.extra}}</p>
                             </ion-col>
                         </ion-row>
                     </ion-grid>

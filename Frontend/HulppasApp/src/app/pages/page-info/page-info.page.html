@@ -50,7 +50,7 @@
                         Nummer:
                     </ion-col>
                     <ion-col>
-                        {{this.personService.person.telefoon}}
+                        {{this.personService.person.telefoonnummer}}
                     </ion-col>
                 </ion-row>
                 <ion-row *ngIf="this.loginService.check">
@@ -76,8 +76,8 @@
     <!-- Hier staan de handelingen met index als de volgorde van de stappen. -->
     <h3 class="title">Handelingen</h3>
     <ion-card>
-        <ion-card-content *ngFor="let handeling of this.personService.person.handeling; let i = index;">
-            <p class="handeling"><strong>{{i + 1}}.</strong> {{handeling}}</p>
+        <ion-card-content *ngFor="let handeling of this.personService.person.handelingen; let i = index;">
+            <strong>{{i + 1}}.</strong> {{handeling}}
         </ion-card-content>
     </ion-card>
 
