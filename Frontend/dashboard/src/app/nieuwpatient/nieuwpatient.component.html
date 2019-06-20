@@ -16,15 +16,23 @@
 
             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
               <div class="card-body">
+                  <div class="form-group">
+                      <label for="id">Person ID</label>
+                      <input ngDefaultControl [(ngModel)]="this.PersoonId" type="text" class="form-control" id="id" placeholder="1234567890">
+                  </div>
                   <label for="adres">Profielfoto</label>
                   <div class="custom-file mb-3">
                     <input type="file" class="custom-file-input" id="foto">
                     <label class="custom-file-label" for="foto" data-browse="Foto kiezen">Voeg de foto toe</label>
                   </div>
                   <div class="form-group">
-                      <label for="naam">Volledige naam</label>
-                      <input [(ngModel)]="this.naam" type="text" class="form-control" id="naam" placeholder="Frederik de Jonge">
-                    </div>
+                    <label for="fotourl">Foto Url (voor testen)</label>
+                    <input ngDefaultControl [(ngModel)]="this.fotourl" type="text" class="form-control " id="fotourl">
+                  </div>
+                  <div class="form-group">
+                    <label for="naam">Volledige naam</label>
+                    <input [(ngModel)]="this.naam" type="text" class="form-control" id="naam" placeholder="Frederik de Jonge">
+                  </div>
                   <div class="form-group">
                     <label for="adres">Adres</label>
                     <input [(ngModel)]="this.adres" type="text" class="form-control" id="adres" placeholder="Straatnaam 10 0000AB Stad">
