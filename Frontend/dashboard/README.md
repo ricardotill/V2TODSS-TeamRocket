@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 - Install [Node.js](https://nodejs.org/dist/v12.11.1/node-v12.11.1-x64.msi)
 - Run `npm install` in CMD in the rootfolder
-- Replace all the occurances of `https://equidem.serveo.net` with the location (IP or webadress) of the backend system.
+- Replace in the files in `/src/app/_services` all the occurances of `https://equidem.serveo.net` with the location (IP or webadress) of the backend system.
 
 ## Development server
 
